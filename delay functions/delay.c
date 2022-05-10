@@ -53,17 +53,7 @@ for(i=0 ; i<y ; i++)
 }
 
 // used for blinking led for three time with delat 1sec between each blink
-void RGB_blink()
-{
-int i;
-for(i=0 ; i<3 ; i++)
-{
-GPIO_PORTF_DATA_R|=0X0E;
-delay_ms(1000);
-GPIO_PORTF_DATA_R |= ~(0X0E);
-delay_ms(1000);
-}
-}
+
 
 
 
