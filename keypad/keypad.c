@@ -1,6 +1,7 @@
 #include "tm4c123gh6pm.h"
 #include "keypad.h"
 #include "Std_INT.h"
+#include "delay.h"
 
 // adding array of charachter in keypad
 u8 symbol[N_row][N_col] = {{ '1', '2',  '3', 'A'},      // row 1
