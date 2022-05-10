@@ -3,6 +3,7 @@
 #include "Std_INT.h"
 
 void PortF_Init();
-void Buzzer_ON();
+void RGB_ON();
+void RGB_OFF();
 
 #endif
