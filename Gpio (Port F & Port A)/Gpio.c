@@ -21,3 +21,8 @@ void RGB_ON() {
 }
 
 
+void RGB_OFF() {                           
+	
+	GPIO_PORTF_DATA_R &= 0x11;
+}
+
