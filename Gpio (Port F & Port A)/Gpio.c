@@ -13,3 +13,11 @@ void PortA_Init(){
 	GPIO_PORTA_DEN_R=0xFF;                      
 	GPIO_PORTA_PUR_R=0x00000000;               
 }
+
+
+void RGB_ON() {                            
+	
+	GPIO_PORTF_DATA_R |= 0x0E;
+}
+
+
