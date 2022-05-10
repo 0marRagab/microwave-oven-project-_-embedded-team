@@ -29,3 +29,16 @@ void Keypad_Init(void)
 	GPIO_PORTA_PCTL_R = 0x00000000;
 }
 
+//Keypad_getkey() function returns the value of key pressed by the user
+u8 Keypad_Getkey(void){
+    while(1){
+    for(int i = 0; i < N_col; i++){             //Scan columns loop
+      GPIO_PORTC_DATA_R = (1 << i+4);
+      delay_us(2);
+      for(int j = 0; j < N_row; j++){           //Scan rows loop
+        if((GPIO_PORTA_DATA_R & 0x3C) & (1 << j+2))
+          return symbol[j][i];
+      }
+    }
+  }
+}
