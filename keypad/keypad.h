@@ -7,6 +7,6 @@
 #define N_row 4
 
 // put func here
-
+u8 Keypad_Getkey(void);
 
 #endif /* KPD_H_ */
