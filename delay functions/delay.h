@@ -17,7 +17,6 @@ void delay_ms(unsigned int x);
 // call delay_us(*time*)
 void delay_us(unsigned int y);
 
-// used for blinking led for three time with delat 1sec between each blink
-void RGB_blink();
+
 	
 #endif
