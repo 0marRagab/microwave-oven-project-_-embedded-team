@@ -15,8 +15,8 @@ void PortF_Init(){
 }
 
 void PortD_Init(){
-	SYSCTL_RCGCGPIO_R |=0x10;                   
-	while((SYSCTL_PRGPIO_R&0x10) == 0){}                                
+	SYSCTL_RCGCGPIO_R |=0x08;                   
+	while((SYSCTL_PRGPIO_R&0x08) == 0){}                                
 	GPIO_PORTF_LOCK_R= 0x4C4F434B;                                       
         GPIO_PORTF_CR_R=0xFF;                 
 	GPIO_PORTF_AFSEL_R=0x00000000;        
