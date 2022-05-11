@@ -22,7 +22,17 @@ int sw1_in() {
 	
 	else
            {return(0);}
-}	
+}
+
+int sw2_in() {                                  
+ char y = GPIO_PORTF_DATA_R & 0x01;
+	
+	if(y==0) 
+		        {return(1);}
+		
+	else
+	        {return(0);}
+	}	
 
 
 void RGB_ON() {                            
