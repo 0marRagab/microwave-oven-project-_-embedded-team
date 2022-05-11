@@ -14,6 +14,16 @@ void PortF_Init(){
 	GPIO_PORTF_PUR_R=0x11;             
 }
 
+int sw1_in() {                                  
+  char x = GPIO_PORTF_DATA_R & 0x10;
+	
+	if(x==0)
+               { return(1); }
+	
+	else
+           {return(0);}
+}	
+
 
 void RGB_ON() {                            
 	
