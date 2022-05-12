@@ -26,9 +26,8 @@ void PortD_Init(){
 	GPIO_PORTF_DEN_R=0xFF;               
 	GPIO_PORTF_PUR_R=0x40;             
 }
-void Buzzer_ON(){
-	GPIO_PORTD_DATA_R |=0x40;
-}
+
+
 int sw1_in() {                                  
   char x = GPIO_PORTF_DATA_R & 0x10;
 	
@@ -57,7 +56,16 @@ int sw3_in() {
 		
 	else
 	    {return(0);}
-	}	
+	}
+
+void Buzzer_ON(){
+	GPIO_PORTD_DATA_R |=0x40;
+}
+
+void Buzzer_OFF(){                         
+	
+        GPIO_PORTD_DATA_R &= 0xBF;
+}
 
 
 void RGB_ON() {                            
