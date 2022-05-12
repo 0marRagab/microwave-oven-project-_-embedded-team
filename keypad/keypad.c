@@ -37,14 +37,20 @@ void Keypad_Init(void)
   	GPIO_PORTA_DEN_R |= 0x1E;
 }
 
-//Keypad_getkey() function returns the value of key pressed by the user
-u8 Keypad_Getkey(void){
-    while(1){
-    for(int i = 0; i < N_col; i++){             //Scan columns loop
-      GPIO_PORTC_DATA_R = (1 << i+4);
+//keypad_getkey() is a function that returns the value of the pressed key by the user.
+u8 keypad_getkey(void)
+{
+	int i;
+	int j;
+  while(1)
+  {
+    for(i = 0; i < 4; i++)                        
+    {
+      GPIO_PORTC_DATA_R = (1U << i+4);
       delay_us(2);
-      for(int j = 0; j < N_row; j++){           //Scan rows loop
-        if((GPIO_PORTA_DATA_R & 0x3C) & (1 << j+2))
+      for(j = 0; j < 4; j++)                     
+      {
+        if((GPIO_PORTE_DATA_R & 0x1E) & (1U << j+1))
           return symbol[j][i];
       }
     }
