@@ -1,6 +1,7 @@
 #include "tm4c123gh6pm.h"
 #include "Gpio.h"
 
+// Initialization of Port F
 void PortF_Init(){
 	SYSCTL_RCGCGPIO_R |=0x20;                   
 	while((SYSCTL_PRGPIO_R&0x20) == 0){}                                
@@ -14,6 +15,7 @@ void PortF_Init(){
 	GPIO_PORTF_PUR_R=0x11;             
 }
 
+// Initialization of Port D
 void PortD_Init(){
 	SYSCTL_RCGCGPIO_R |=0x08;                   
 	while((SYSCTL_PRGPIO_R&0x08) == 0){}                                
