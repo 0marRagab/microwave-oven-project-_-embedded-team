@@ -45,6 +45,16 @@ int sw2_in() {
 		
 	else
 	        {return(0);}
+	}
+
+int sw3_in() {                                
+ char z = GPIO_PORTD_DATA_R & 0x80;
+	
+	if(z==0) 
+	        {return(1);}
+		
+	else
+	    {return(0);}
 	}	
 
 
