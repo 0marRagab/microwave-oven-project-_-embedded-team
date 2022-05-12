@@ -7,7 +7,10 @@ void PortD_Init();
 int sw1_in();
 int sw2_in();
 int sw3_in();
+void Buzzer_ON();
+void Buzzer_OFF();
 void RGB_ON();
 void RGB_OFF();
+
 
 #endif
