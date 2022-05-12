@@ -6,6 +6,7 @@ void PortF_Init();
 void PortD_Init();
 int sw1_in();
 int sw2_in();
+int sw3_in();
 void RGB_ON();
 void RGB_OFF();
 
