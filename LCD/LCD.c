@@ -70,3 +70,50 @@ void lcd_setCursor(u8 x,u8 y)
 	lcd_cmd(firstcharadr[y-1] + x - 1);
 	delay_ms(50);
 }
+//Apply initialization sequence for LCD module
+void init_lcd (void)                     
+{
+ PortB_Init();
+ PortD_Init();	
+	
+  //Function Set
+lcd_cmd(lcd_FunctionSet8bit);
+delay_ms(1);
+
+	
+// Entry Mode Set  
+lcd_cmd(lcd_EntryMode);
+delay_ms(1);
+	
+ // Turn Display ON with Cursor Blinking  
+lcd_cmd(lcd_DisplayOn);
+delay_ms(1);
+	
+// Clear Display 
+lcd_clear();
+delay_ms(2);
+	
+//Return Home 
+lcd_cmd(lcd_Home);
+delay_ms(2);
+	
+return;
+}
+
+void lcd_clear()
+{
+lcd_cmd(lcd_Clear);	
+}
+
+//Interface to send the configuration commands to the LCD Driver
+void lcd_cmd(u8 cmd)            
+{
+GPIO_PORTB_DATA_R=cmd;
+	
+GPIO_PORTD_DATA_R=(LOW<<PIN2)|(LOW<<PIN3)|(HIGH<<PIN6);
+delay_ms(1);
+GPIO_PORTD_DATA_R=(LOW<<PIN2)|(LOW<<PIN3)|(LOW<<PIN6);
+delay_ms(50);
+	
+return;
+}
