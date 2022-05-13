@@ -1,7 +1,7 @@
 #include "io.h"
 #include "LCD.h"
 #include "delay.h"
-
+//====================================================================================================
 //initilization port B for data
 void PortB_Init(void)
 { 
@@ -16,7 +16,7 @@ GPIO_PORTB_AFSEL_R &= 0;           //Disable alternate function register
 GPIO_PORTB_PCTL_R &= 0;           //make all pins as GPIO pins
 GPIO_PORTB_PUR_R = 0x00;         //disable pull up register
 }
-
+//====================================================================================================
 // initilization port D for en,rs,rw
 void PortD_Init(void)
 { 
@@ -31,7 +31,7 @@ GPIO_PORTD_AFSEL_R &= 0x00;                //disable alternate function register
 GPIO_PORTD_PCTL_R &= 0x00;                //make pin0--->pin7 in port D as GPIO
 GPIO_PORTD_PUR_R = 0x00;                 //disable pull up register
 }
-
+//====================================================================================================
 //Apply initialization sequence for LCD module
 void init_lcd (void)                     
 {
@@ -61,12 +61,13 @@ delay_ms(2);
 	
 return;
 }
-
+//====================================================================================================
+//to clear lcd 
 void lcd_clear()
 {
 lcd_cmd(lcd_Clear);	
 }
-
+//====================================================================================================
 //Interface to send the configuration commands to the LCD Driver
 void lcd_cmd(u8 cmd)            
 {
@@ -79,6 +80,19 @@ delay_ms(50);
 	
 return;
 }
+//====================================================================================================
+//Interface to start the writing process at certain digit in the LCD, call lcd_goto(col,row) 
+void lcd_setCursor(u8 x,u8 y)    
+{
+	u8 firstcharadr[]={first_line1, first_line2}; // FirstCharAddress[0]=0x80  ,,,, FirstCharAddress[1]=0xC0 
+	lcd_cmd(firstcharadr[y-1] + x - 1);
+	delay_ms(50);
+}
+//====================================================================================================
+
+//====================================================================================================
+
+//====================================================================================================
 // Function used to make timer on LCD
 // call lcd_timer (char array of counter digits without coulmn ex to set timer for 2 min lcd_timer(0200) )
 void super_timer(u8 min,u8 mmin,u8 sec,u8 msec){
@@ -132,10 +146,5 @@ if(msec=='0'&&sec=='0'&&min=='0'&&mmin=='0'){
 
 }
 }}
-//Interface to start the writing process at certain digit in the LCD, call lcd_goto(col,row) 
-void lcd_setCursor(u8 x,u8 y)    
-{
-	u8 firstcharadr[]={first_line1, first_line2}; // FirstCharAddress[0]=0x80  ,,,, FirstCharAddress[1]=0xC0 
-	lcd_cmd(firstcharadr[y-1] + x - 1);
-	delay_ms(50);
-}
+//====================================================================================================
+
