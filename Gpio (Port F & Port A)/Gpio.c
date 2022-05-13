@@ -17,15 +17,15 @@ void PortF_Init(){
 
 // Initialization of Port A
 void PortA_Init(){
-	SYSCTL_RCGCGPIO_R |=0x01;                         
-	while((SYSCTL_PRGPIO_R&0x01) == 0){}                                   
-        GPIO_PORTA_CR_R=0x18;                          
-	GPIO_PORTA_AFSEL_R=0x00000000;                
-	GPIO_PORTA_PCTL_R=0x00000000;                  
-	GPIO_PORTA_AMSEL_R=0X00000000;                  
-	GPIO_PORTA_DIR_R=0x08;                              
-	GPIO_PORTA_DEN_R=0xFF;                      
-	GPIO_PORTA_PUR_R=0x00000000;             
+	SYSCTL_RCGCGPIO_R |=0x01;                          //Activate the Clock on PortA
+	while((SYSCTL_PRGPIO_R&0x01) == 0){}              //Wait until the Clock is Activated                        
+        GPIO_PORTA_CR_R=0x18;                            //enable control on PA3, PA4   (Allow Changes)
+	GPIO_PORTA_AFSEL_R=0x00000000;                  //Disable Alternate Function on Port A
+	GPIO_PORTA_PCTL_R=0x00000000;                  //All Pins in PortA are GPIO
+	GPIO_PORTA_AMSEL_R=0X00000000;                //All pins are digital so disable the AMSEL Register   
+	GPIO_PORTA_DIR_R=0x08;                       //PA4 input (Switch) , PA3 output (Buzzer)          
+	GPIO_PORTA_DEN_R=0xFF;                      //All pins are digital only
+	GPIO_PORTA_PUR_R=0x00000000;               //Disable Pull Up Resistor since the external switch will be connected to external pull up resistor  
 }
 
 
