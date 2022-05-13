@@ -96,95 +96,138 @@ void lcd_setCursor(u8 x,u8 y)
 // Function used to make timer on LCD
 // call lcd_timer (char array of counter digits without coulmn ex to set timer for 2 min lcd_timer(0200) )
 int super_timer(u8 min,u8 mmin,u8 sec,u8 msec){
-while(1){
-	
-	if(min>'3'){
-		lcd_setCursor(1,1);
-	lcd_print("ErrReEnterAgain");
-		break;
-	
-}
-	else if(sec>'5'){
-	sec='1';
-	mmin++;
-	
+	while(1){
+		if(min>'3'){
+			lcd_setCursor(1,1);
+			lcd_print("ErrReEnterAgain");
+			break;
+		}
+		else if(sec>'5'){
+			sec='1';
+			mmin++;
+		}
+		else{
+			lcd_cmd(lcd_Clear);
+			lcd_setCursor(6,2);
+			lcd_string(min,mmin,':',sec,msec);
+			delay_ms(1000);
+			if(msec!='0'){
+				msec--;
+				}
+			if(msec=='0'&&sec=='1'){
+				lcd_cmd(lcd_Clear);
+				lcd_setCursor(6,2);
+				lcd_string(min,mmin,':',sec,msec);
+				delay_ms(1000);
+				if (sw1_in()==1) {
+					while (sw2_in()==0){
+						delay_ms(500); 
+					        RGB_OFF();
+						delay_m_s(1000);
+					        RGB_ON();
+						delay_m_s(1000);
+						if(sw1_in() ==1){
+							RGB_OFF();
+							lcd_clear();
+							lcd_print("cooking stoped");
+							delay_ms(2000);
+							return 0; 
+						}
+					}
+					RGB_ON();
+				}
+			}
+			if(msec=='0'&&sec!='0'){
+				msec='9';
+				sec--;
+			}
+			if(msec=='0'&&sec=='0'&&mmin!='0'){
+				mmin--;
+				sec='5';
+				msec='9';
+			}
+			if(msec=='0'&&sec=='0'&&mmin=='0'&&min!='0'){
+				min--;
+				mmin='9';
+				sec='5';
+				msec='9';
+			}
+			if(msec=='0'&&sec=='0'&&min=='0'&&mmin=='0'){
+				lcd_setCursor(6,2);
+				lcd_string('0','0',':','0','0');
+				lcd_cmd(lcd_Clear);
+				break;
+			}
+		}
+		Buzzer_ON();
+		for( i=0 ; i< 3 ; i++ ){
+			RGB_OFF();
+			delay_ms(500);
+			RGB_ON();
+			delay_ms(500);
+			RGB_OFF();
+		}
+		Buzzer_OFF();
+		return 0;
 	}
-	else{
-	lcd_cmd(lcd_Clear);
-	lcd_setCursor(6,2);
-	lcd_string(min,mmin,':',sec,msec);
-	
-   delay_ms(1000);
-		
-if(msec!='0'){
-msec--;
-	
 }
-if(msec=='0'&&sec=='1'){
-	lcd_cmd(lcd_Clear);
-lcd_setCursor(6,2);
-	lcd_string(min,mmin,':',sec,msec);
-	
-	delay_ms(1000);
-	if (sw1_in()==1) {
-            while (sw2_in()==0)
-             {
+
+//====================================================================================================
+
+int lcd_timer(u8* x){
+	char i,j,k,l;
+	char y = x[0];
+	char m = x[1];
+	char n = x[2];
+	char z = x[3];
+	RGB_ON();
+	lcd_setCursor(9,2);
+	lcd_write(':');
+	for(i=y ; i>='0' ; i--){
+		lcd_setCursor(7,2);
+		lcd_write(i);
+		for (j=m ; j>='0' ; j--){
+			lcd_setCursor(8,2);
+			lcd_write(j);
+			for (k=n ; k>='0' ; k--){
+				lcd_setCursor(10,2);
+				lcd_write(k);
+				for (l=z ; l>='0' ; l--){
+					lcd_setCursor(11,2);
+					lcd_write(l);
+					delay_m_s(1000);
+					if (sw1_in()==1) {
+						while (sw2_in()==0){
 							delay_ms(500); 
-              RGB_OFF();
-		          delay_m_s(1000);
-		          RGB_ON();
-		          delay_m_s(1000); 
-              if(sw1_in() ==1)
-              {
+							RGB_OFF();
+							delay_m_s(1000);
+							RGB_ON();
+							delay_m_s(1000); 
+						        if(sw1_in() ==1){
 								RGB_OFF();
 								lcd_clear();
 								lcd_print("cooking stoped");
 								delay_ms(2000);
-                return 0; 
-              }
-				    }
-					RGB_ON();	 
+								return 0; 
+							}
+						}
+						RGB_ON();
 					}
-}
-if(msec=='0'&&sec!='0'){
-msec='9';
-	sec--;
-}
-if(msec=='0'&&sec=='0'&&mmin!='0'){
-mmin--;
-	sec='5';
-	msec='9';
-}
-if(msec=='0'&&sec=='0'&&mmin=='0'&&min!='0'){
-min--;
-	mmin='9';
-	sec='5';
-	msec='9';
-
-}
-if(msec=='0'&&sec=='0'&&min=='0'&&mmin=='0'){
-	lcd_setCursor(6,2);
-	lcd_string('0','0',':','0','0');
-	lcd_cmd(lcd_Clear);
-  break;
-}
-
-
-}
+					z='9';
+				}
+				n='5';
+			}
+			m='9';
+		}
+	}
 	Buzzer_ON();
 	for( i=0 ; i< 3 ; i++ ){
 		RGB_OFF();
 		delay_ms(500);
-    RGB_ON();
+		RGB_ON();
 		delay_ms(500);
-    RGB_OFF();		
+		RGB_OFF();
 	}
 	Buzzer_OFF();
 	return 0;
 }
-
-
-
-}
-//====================================================================================================
-
