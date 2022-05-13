@@ -50,7 +50,7 @@ int sw2_in() {
 	}
 
 int sw3_in() {                                
- char z = GPIO_PORTD_DATA_R & 0x80;
+ char z = GPIO_PORTA_DATA_R & 0x10;
 	
 	if(z==0) 
 	        {return(1);}
