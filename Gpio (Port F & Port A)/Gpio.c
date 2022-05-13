@@ -60,12 +60,12 @@ int sw3_in() {
 	}
 
 void Buzzer_ON(){
-	GPIO_PORTD_DATA_R |=0x40;
+	GPIO_PORTA_DATA_R |=0x08;
 }
 
 void Buzzer_OFF(){                         
 	
-        GPIO_PORTD_DATA_R &= 0xBF;
+        GPIO_PORTA_DATA_R &= 0xF7;
 }
 
 
