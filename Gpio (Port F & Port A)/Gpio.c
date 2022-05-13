@@ -3,16 +3,16 @@
 
 // Initialization of Port F
 void PortF_Init(){
-	SYSCTL_RCGCGPIO_R |=0x20;                   
-	while((SYSCTL_PRGPIO_R&0x20) == 0){}                                
-	GPIO_PORTF_LOCK_R= 0x4C4F434B;                                       
-        GPIO_PORTF_CR_R=0x1F;                 
-	GPIO_PORTF_AFSEL_R=0x00000000;        
-	GPIO_PORTF_PCTL_R=0x00000000;          
-	GPIO_PORTF_AMSEL_R=0X00000000;        
-	GPIO_PORTF_DIR_R=0x0E;                
-	GPIO_PORTF_DEN_R=0x1F;               
-	GPIO_PORTF_PUR_R=0x11;             
+	SYSCTL_RCGCGPIO_R |=0x20;                    //Activate the Clock on PortF
+	while((SYSCTL_PRGPIO_R&0x20) == 0){}        //Wait until the Clock is Activated                            
+	GPIO_PORTF_LOCK_R= 0x4C4F434B;             //Unlock PortF                             
+        GPIO_PORTF_CR_R=0x1F;                     //enable control on PF0-PF4   (Allow Changes)
+	GPIO_PORTF_AFSEL_R=0x00000000;           //Disable Alternate Function on Port F  
+	GPIO_PORTF_PCTL_R=0x00000000;           //All Pins in PortF are GPIO
+	GPIO_PORTF_AMSEL_R=0X00000000;         //All pins are digital only so disable the AMSEL Register 
+	GPIO_PORTF_DIR_R=0x0E;                //PF0,PF4 inputs, PF1-PF3 output
+	GPIO_PORTF_DEN_R=0x1F;               //All pins are digital only
+	GPIO_PORTF_PUR_R=0x11;              //Enable Pull Up Resistor on PF0 and PF4
 }
 
 // Initialization of Port A
