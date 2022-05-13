@@ -84,7 +84,7 @@ return;
 void super_timer(u8 min,u8 mmin,u8 sec,u8 msec){
 while(1){
 	
-	if(min>3||mmin>9||sec>5||msec>9){
+	if(min>'3'||mmin>'9'||sec>'5'||msec>'9'){
 		lcd_setCursor(1,1);
 	lcd_print("ErrReEnterAgain");
 	
