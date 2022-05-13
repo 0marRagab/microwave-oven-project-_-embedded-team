@@ -31,45 +31,7 @@ GPIO_PORTD_AFSEL_R &= 0x00;                //disable alternate function register
 GPIO_PORTD_PCTL_R &= 0x00;                //make pin0--->pin7 in port D as GPIO
 GPIO_PORTD_PUR_R = 0x00;                 //disable pull up register
 }
-// Function used to make timer on LCD
-// call lcd_timer (char array of counter digits without coulmn ex to set timer for 2 min lcd_timer(0200) )
-void lcd_timer(u8* x){
-	char i,j,k,l;
-	char y = x[0];
-	char m = x[1];
-	char n = x[2];
-	char z = x[3];
-	lcd_setCursor(9,2);
-	lcd_write(':');
-	for(i=y ; i>='0' ; i--){
-		lcd_setCursor(7,2);
-		lcd_write(i);
-		for (j=m ; j>='0' ; j--){
-			lcd_setCursor(8,2);
-			lcd_write(j);
-			for (k=n ; k>='0' ; k--){
-				lcd_setCursor(10,2);
-				lcd_write(k);
-				for (l=z ; l>='0' ; l--){
-					lcd_setCursor(11,2);
-					lcd_write(l);
-					delay_ms(1000);
-				}
-				z='9';
-			}
-			n='5';
-		}
-		m='9';
-	}
-}
 
-//Interface to start the writing process at certain digit in the LCD, call lcd_goto(col,row) 
-void lcd_setCursor(u8 x,u8 y)    
-{
-	u8 firstcharadr[]={first_line1, first_line2}; // FirstCharAddress[0]=0x80  ,,,, FirstCharAddress[1]=0xC0 
-	lcd_cmd(firstcharadr[y-1] + x - 1);
-	delay_ms(50);
-}
 //Apply initialization sequence for LCD module
 void init_lcd (void)                     
 {
@@ -116,4 +78,64 @@ GPIO_PORTD_DATA_R=(LOW<<PIN2)|(LOW<<PIN3)|(LOW<<PIN6);
 delay_ms(50);
 	
 return;
+}
+// Function used to make timer on LCD
+// call lcd_timer (char array of counter digits without coulmn ex to set timer for 2 min lcd_timer(0200) )
+void super_timer(u8 min,u8 mmin,u8 sec,u8 msec){
+while(1){
+	
+	if(min>3||mmin>9||sec>5||msec>9){
+		lcd_setCursor(1,1);
+	lcd_print("ErrReEnterAgain");
+	
+}
+	else{
+	lcd_cmd(lcd_Clear);
+	lcd_setCursor(6,2);
+	lcd_string(min,mmin,':',sec,msec);
+	
+   delay_ms(1000);
+if(msec!='0'){
+msec--;
+	
+}
+if(msec=='0'&&sec=='1'){
+	lcd_cmd(lcd_Clear);
+lcd_setCursor(6,2);
+	lcd_string(min,mmin,':',sec,msec);
+	
+	delay_ms(1000);
+}
+if(msec=='0'&&sec!='0'){
+msec='9';
+	sec--;
+}
+if(msec=='0'&&sec=='0'&&mmin!='0'){
+mmin--;
+	sec='5';
+	msec='9';
+}
+if(msec=='0'&&sec=='0'&&mmin=='0'&&min!='0'){
+min--;
+	mmin='9';
+	sec='5';
+	msec='9';
+
+}
+if(msec=='0'&&sec=='0'&&min=='0'&&mmin=='0'){
+	lcd_setCursor(6,2);
+	lcd_string('0','0',':','0','0');
+	lcd_cmd(lcd_Clear);
+  break;
+}
+
+
+}
+}}
+//Interface to start the writing process at certain digit in the LCD, call lcd_goto(col,row) 
+void lcd_setCursor(u8 x,u8 y)    
+{
+	u8 firstcharadr[]={first_line1, first_line2}; // FirstCharAddress[0]=0x80  ,,,, FirstCharAddress[1]=0xC0 
+	lcd_cmd(firstcharadr[y-1] + x - 1);
+	delay_ms(50);
 }
