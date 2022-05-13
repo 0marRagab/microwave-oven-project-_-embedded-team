@@ -53,7 +53,16 @@ for(i=0 ; i<y ; i++)
 }
 
 
-
+int delay_portA_interrupt(unsigned int x) { 
+int i;
+for(i=0 ; i<x ; i++){ 
+delay_onems(); 
+if ( sw3_in() ==0){
+return 0;
+}
+}
+return 0;
+}
 
 
 
