@@ -85,5 +85,20 @@ void RGB_OFF() {                           // call RGB_OFF() to turn of the RGB 
 	GPIO_PORTF_DATA_R &= 0x11;
 }
 
+void RGB_FLASH() {                           // call RGB_FlASH() to Flash the RGB array 3 times
+	
+	RGB_ON();
+	delay_ms(500);
+	RGB_OFF();
+	delay_ms(500);
+        RGB_ON();
+	delay_ms(500);
+	RGB_OFF();
+	delay_ms(500);
+	RGB_ON();
+	delay_ms(500);
+	RGB_OFF();
+        delay_ms(500);
+}
 
 
