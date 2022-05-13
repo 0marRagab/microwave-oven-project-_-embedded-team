@@ -15,18 +15,17 @@ void PortF_Init(){
 	GPIO_PORTF_PUR_R=0x11;             
 }
 
-// Initialization of Port D
-void PortD_Init(){
-	SYSCTL_RCGCGPIO_R |=0x08;                   
-	while((SYSCTL_PRGPIO_R&0x08) == 0){}                                
-	GPIO_PORTF_LOCK_R= 0x4C4F434B;                                       
-        GPIO_PORTF_CR_R=0xFF;                 
-	GPIO_PORTF_AFSEL_R=0x00000000;        
-	GPIO_PORTF_PCTL_R=0x00000000;          
-	GPIO_PORTF_AMSEL_R=0X00000000;        
-	GPIO_PORTF_DIR_R=0x20;                
-	GPIO_PORTF_DEN_R=0xFF;               
-	GPIO_PORTF_PUR_R=0x40;             
+// Initialization of Port A
+void PortA_Init(){
+	SYSCTL_RCGCGPIO_R |=0x01;                         
+	while((SYSCTL_PRGPIO_R&0x01) == 0){}                                   
+        GPIO_PORTA_CR_R=0x18;                          
+	GPIO_PORTA_AFSEL_R=0x00000000;                
+	GPIO_PORTA_PCTL_R=0x00000000;                  
+	GPIO_PORTA_AMSEL_R=0X00000000;                  
+	GPIO_PORTA_DIR_R=0x08;                              
+	GPIO_PORTA_DEN_R=0xFF;                      
+	GPIO_PORTA_PUR_R=0x00000000;             
 }
 
 
