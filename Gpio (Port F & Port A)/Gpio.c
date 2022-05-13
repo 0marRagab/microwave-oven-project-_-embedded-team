@@ -29,7 +29,7 @@ void PortA_Init(){
 }
 
 
-int sw1_in() {                                  
+int sw1_in() {                                  // This function returns 1 if sw1 is pressed and returns 0 if not pressed                         
   char x = GPIO_PORTF_DATA_R & 0x10;
 	
 	if(x==0)
@@ -39,7 +39,7 @@ int sw1_in() {
            {return(0);}
 }
 
-int sw2_in() {                                  
+int sw2_in() {                              // This function returns 1 if sw1 is pressed and returns 0 if not pressed                           
  char y = GPIO_PORTF_DATA_R & 0x01;
 	
 	if(y==0) 
@@ -49,7 +49,7 @@ int sw2_in() {
 	        {return(0);}
 	}
 
-int sw3_in() {                                
+int sw3_in() {                          // This function returns 1 if sw1 is pressed and returns 0 if not pressed                   
  char z = GPIO_PORTA_DATA_R & 0x10;
 	
 	if(z==0) 
