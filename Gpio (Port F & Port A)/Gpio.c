@@ -26,7 +26,16 @@ void PortA_Init(){
 	GPIO_PORTA_AMSEL_R=0X00000000;                //All pins are digital so disable the AMSEL Register   
 	GPIO_PORTA_DIR_R=0x0C;                       //PA4 input (Switch) , PA3 output (Buzzer) , PA2 output (red led)         
 	GPIO_PORTA_DEN_R=0xFF;                      //All pins are digital only
-	GPIO_PORTA_PUR_R=0x00000000;               //Disable Pull Up Resistor since the external switch will be connected to external pull up resistor  
+	GPIO_PORTA_PUR_R=0x00000000;               //Disable Pull Up Resistor since the external switch will be connected to external pull up resistor
+	
+	GPIO_PORTA_IS_R &= ~ (0x10);                                      // PA4 is low level event
+        GPIO_PORTA_IEV_R &= ~(0x00);                                     // PA4 level event
+        GPIO_PORTA_ICR_R = 0x10;                                        // clear flag4
+        GPIO_PORTA_IM_R |= 0x10;                                       // arm interrupt on PA4	
+        NVIC_PRI0_R = ((NVIC_PRI0_R&0xFF00FFFF)|0x00000000 );         // priority 5 of port f 
+        NVIC_EN0_R = 0x00000001;                                     //  enable interrupt of port A
+        __enable_irq();                                             // Enable global Interrupt 
+}
 	
 }
 
