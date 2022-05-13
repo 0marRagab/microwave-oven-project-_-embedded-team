@@ -3,7 +3,7 @@
 #include "Std_INT.h"
 
 void PortF_Init();
-void PortD_Init();
+void PortA_Init();
 int sw1_in();
 int sw2_in();
 int sw3_in();
