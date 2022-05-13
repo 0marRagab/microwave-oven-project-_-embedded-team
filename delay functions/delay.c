@@ -52,7 +52,6 @@ for(i=0 ; i<y ; i++)
                   }
 }
 
-// used for blinking led for three time with delat 1sec between each blink
 
 
 
