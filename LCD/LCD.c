@@ -89,8 +89,31 @@ void lcd_setCursor(u8 x,u8 y)
 	delay_ms(50);
 }
 //====================================================================================================
-
+//Interface to write character on LCD screen
+void lcd_write(u8 data)
+{
+GPIO_PORTB_DATA_R=data;
+	
+GPIO_PORTD_DATA_R=(HIGH<<PIN2)|(LOW<<PIN3)|(HIGH<<PIN6);
+delay_ms(1);
+GPIO_PORTD_DATA_R=(HIGH<<PIN2)|(LOW<<PIN3)|(LOW<<PIN6);
+delay_ms(50);
+	
+return;
+}
 //====================================================================================================
+//Interface to write string on LCD screen
+void lcd_print(u8 *str)  
+{
+int		i=0;
+while(str[i]!='\0')
+{
+lcd_write(str[i]);
+i++;	
+}
+delay_ms(100);
+return;	
+}
 
 //====================================================================================================
 // Function used to make timer on LCD
