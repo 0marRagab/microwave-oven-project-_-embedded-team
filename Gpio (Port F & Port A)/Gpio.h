@@ -39,5 +39,9 @@ void RGB_ON();
 void RGB_OFF();
 
 
+// call RGB_FlASH() to Flash the RGB array 3 times
+void RGB_FLASH();                           
+
+
 #endif
 
