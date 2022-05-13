@@ -44,7 +44,16 @@ void RGB_BLINK();
   
   
 // call RGB_FlASH() to Flash the RGB array 3 times
-void RGB_FLASH();                           
+void RGB_FLASH();    
+
+
+// call Red_ON() to turn on the external red led
+void Red_ON();
+
+
+// call Red_OFF() to turn off the external red led
+void Red_OFF(){                          
+
 
 
 #endif
