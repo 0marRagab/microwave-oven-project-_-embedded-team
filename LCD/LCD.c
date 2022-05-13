@@ -98,17 +98,23 @@ void lcd_setCursor(u8 x,u8 y)
 void super_timer(u8 min,u8 mmin,u8 sec,u8 msec){
 while(1){
 	
-	if(min>'3'||mmin>'9'||sec>'5'||msec>'9'){
+	if(min>'3'){
 		lcd_setCursor(1,1);
 	lcd_print("ErrReEnterAgain");
 	
 }
+	else if(sec>'5'){
+	sec='1';
+	mmin++;
+	
+	}
 	else{
 	lcd_cmd(lcd_Clear);
 	lcd_setCursor(6,2);
 	lcd_string(min,mmin,':',sec,msec);
 	
    delay_ms(1000);
+		
 if(msec!='0'){
 msec--;
 	
@@ -164,8 +170,7 @@ if(msec=='0'&&sec=='0'&&min=='0'&&mmin=='0'){
 
 
 }
-}
-Buzzer_ON();
+	Buzzer_ON();
 	for( i=0 ; i< 3 ; i++ ){
 		RGB_OFF();
 		delay_ms(500);
@@ -175,6 +180,8 @@ Buzzer_ON();
 	}
 	Buzzer_OFF();
 	return 0;
+}
+
 
 
 }
