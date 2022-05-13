@@ -20,13 +20,14 @@ void PortF_Init(){
 void PortA_Init(){
 	SYSCTL_RCGCGPIO_R |=0x01;                          //Activate the Clock on PortA
 	while((SYSCTL_PRGPIO_R&0x01) == 0){}              //Wait until the Clock is Activated                        
-        GPIO_PORTA_CR_R=0x18;                            //enable control on PA3, PA4   (Allow Changes)
+        GPIO_PORTA_CR_R=0x1C;                            //enable control on PA2, PA3, PA4   (Allow Changes)
 	GPIO_PORTA_AFSEL_R=0x00000000;                  //Disable Alternate Function on Port A
 	GPIO_PORTA_PCTL_R=0x00000000;                  //All Pins in PortA are GPIO
 	GPIO_PORTA_AMSEL_R=0X00000000;                //All pins are digital so disable the AMSEL Register   
-	GPIO_PORTA_DIR_R=0x08;                       //PA4 input (Switch) , PA3 output (Buzzer)          
+	GPIO_PORTA_DIR_R=0x0C;                       //PA4 input (Switch) , PA3 output (Buzzer) , PA2 output (red led)         
 	GPIO_PORTA_DEN_R=0xFF;                      //All pins are digital only
 	GPIO_PORTA_PUR_R=0x00000000;               //Disable Pull Up Resistor since the external switch will be connected to external pull up resistor  
+	
 }
 
 
@@ -107,6 +108,17 @@ void RGB_FLASH() {                           // call RGB_FlASH() to Flash the RG
 	delay_ms(500);
 	RGB_OFF();
         delay_ms(500);
+}
+
+
+void Red_ON(){                              // call Red_ON() to turn on the external red led
+	
+GPIO_PORTA_DATA_R |= 0x04;
+}	
+
+void Red_OFF(){                          // call Red_OFF() to turn off the external red led
+	
+GPIO_PORTA_DATA_R &= 0xFB;
 }
 
 
