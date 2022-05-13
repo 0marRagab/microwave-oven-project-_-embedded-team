@@ -17,6 +17,8 @@ void delay_ms(unsigned int x);
 // call delay_us(*time*)
 void delay_us(unsigned int y);
 
+int delay_portA_interrupt(unsigned int x);
+
 
 	
 #endif
