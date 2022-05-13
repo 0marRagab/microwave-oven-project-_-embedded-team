@@ -95,12 +95,13 @@ void lcd_setCursor(u8 x,u8 y)
 //====================================================================================================
 // Function used to make timer on LCD
 // call lcd_timer (char array of counter digits without coulmn ex to set timer for 2 min lcd_timer(0200) )
-void super_timer(u8 min,u8 mmin,u8 sec,u8 msec){
+int super_timer(u8 min,u8 mmin,u8 sec,u8 msec){
 while(1){
 	
 	if(min>'3'){
 		lcd_setCursor(1,1);
 	lcd_print("ErrReEnterAgain");
+		break;
 	
 }
 	else if(sec>'5'){
