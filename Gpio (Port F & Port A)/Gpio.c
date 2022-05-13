@@ -15,6 +15,7 @@ void PortF_Init(){
 	GPIO_PORTF_PUR_R=0x11;              //Enable Pull Up Resistor on PF0 and PF4
 }
 
+
 // Initialization of Port A
 void PortA_Init(){
 	SYSCTL_RCGCGPIO_R |=0x01;                          //Activate the Clock on PortA
@@ -29,7 +30,8 @@ void PortA_Init(){
 }
 
 
-int sw1_in() {                                  // This function returns 1 if sw1 is pressed and returns 0 if not pressed                         
+
+int sw1_in() {                                  // This function returns 1 if sw1 is pressed and returns 0 if not pressed
   char x = GPIO_PORTF_DATA_R & 0x10;
 	
 	if(x==0)
@@ -37,9 +39,12 @@ int sw1_in() {                                  // This function returns 1 if sw
 	
 	else
            {return(0);}
-}
+}	
 
-int sw2_in() {                              // This function returns 1 if sw1 is pressed and returns 0 if not pressed                           
+
+	
+	
+int sw2_in() {                                  // This function returns 1 if sw2 is pressed and returns 0 if not pressed
  char y = GPIO_PORTF_DATA_R & 0x01;
 	
 	if(y==0) 
@@ -47,9 +52,9 @@ int sw2_in() {                              // This function returns 1 if sw1 is
 		
 	else
 	        {return(0);}
-	}
-
-int sw3_in() {                          // This function returns 1 if sw1 is pressed and returns 0 if not pressed                   
+	}	
+	
+int sw3_in() {                                // This function returns 1 if sw3 is pressed and returns 0 if not pressed
  char z = GPIO_PORTA_DATA_R & 0x10;
 	
 	if(z==0) 
@@ -59,24 +64,26 @@ int sw3_in() {                          // This function returns 1 if sw1 is pre
 	    {return(0);}
 	}
 
-void Buzzer_ON(){
-	GPIO_PORTA_DATA_R |=0x08;
-}
-
-void Buzzer_OFF(){                         
 	
-        GPIO_PORTA_DATA_R &= 0xF7;
-}
+void Buzzer_ON(){                              // call Buzzer_ON() to turn on the buzzer
+	
+GPIO_PORTA_DATA_R |= 0x08;
+}	
 
+void Buzzer_OFF(){                          // call Buzzer_OFF() to turn off the buzzer
+	
+GPIO_PORTA_DATA_R &= 0xB7;
+}	
 
-void RGB_ON() {                            
+void RGB_ON() {                            // call RGB_ON() to turn on the RGB array
 	
 	GPIO_PORTF_DATA_R |= 0x0E;
 }
 
-
-void RGB_OFF() {                           
+void RGB_OFF() {                           // call RGB_OFF() to turn of the RGB array
 	
 	GPIO_PORTF_DATA_R &= 0x11;
 }
+
+
 
