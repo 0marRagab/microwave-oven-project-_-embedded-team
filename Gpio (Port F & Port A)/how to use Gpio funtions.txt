@@ -1,0 +1,29 @@
+
+
+1- To initialize Port F call PortF_Init();
+
+
+2- To initialize Port A call PortA_Init();
+
+
+3- call sw1_in() to know if switch 1 is pressed or not, this functions returns 1 if sw1 is pressed and 0 if not Pressed
+
+
+4- call sw2_in() to know if switch 1 is pressed or not, this functions returns 1 if sw2 is pressed and 0 if not Pressed
+
+
+5- call sw3_in() to know if switch 1 is pressed or not, this functions returns 1 if sw3 is pressed and 0 if not Pressed
+
+
+6- call Buzzer_ON() to turn on the buzzer
+
+
+7- call Buzzer_OFF() to turn off the buzzer
+
+
+8- call RGB_ON() to turn on the RGB array
+
+
+9- call RGB_OFF() to turn of the RGB array
+
+
