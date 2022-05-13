@@ -28,7 +28,7 @@ void PortA_Init(){
 	GPIO_PORTA_DEN_R=0xFF;                      //All pins are digital only
 	GPIO_PORTA_PUR_R=0x00000000;               //Disable Pull Up Resistor since the external switch will be connected to external pull up resistor
 	
-	GPIO_PORTA_IS_R &= ~ (0x10);                                      // PA4 is low level event
+	GPIO_PORTA_IS_R &= ~(0x10);                                      // PA4 is low level event
         GPIO_PORTA_IEV_R &= ~(0x00);                                     // PA4 level event
         GPIO_PORTA_ICR_R = 0x10;                                        // clear flag4
         GPIO_PORTA_IM_R |= 0x10;                                       // arm interrupt on PA4	
