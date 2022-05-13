@@ -96,30 +96,6 @@ void RGB_OFF() {                           // call RGB_OFF() to turn of the RGB 
 }
 
 
-void RGB_BLINK() {                            // call RGB_BLINK() to blink the RGB array
-	
-	GPIO_PORTF_DATA_R ^= 0x0E;
-	delay_ms(500);
-}
-
-
-void RGB_FLASH() {                           // call RGB_FlASH() to Flash the RGB array 3 times
-	
-	RGB_ON();
-	delay_ms(500);
-	RGB_OFF();
-	delay_ms(500);
-        RGB_ON();
-	delay_ms(500);
-	RGB_OFF();
-	delay_ms(500);
-	RGB_ON();
-	delay_ms(500);
-	RGB_OFF();
-        delay_ms(500);
-}
-
-
 void Red_ON(){                              // call Red_ON() to turn on the external red led
 	
 GPIO_PORTA_DATA_R |= 0x04;
