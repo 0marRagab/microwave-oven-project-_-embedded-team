@@ -119,6 +119,25 @@ lcd_setCursor(6,2);
 	lcd_string(min,mmin,':',sec,msec);
 	
 	delay_ms(1000);
+	if (sw1_in()==1) {
+            while (sw2_in()==0)
+             {
+							delay_ms(500); 
+              RGB_OFF();
+		          delay_m_s(1000);
+		          RGB_ON();
+		          delay_m_s(1000); 
+              if(sw1_in() ==1)
+              {
+								RGB_OFF();
+								lcd_clear();
+								lcd_print("cooking stoped");
+								delay_ms(2000);
+                return 0; 
+              }
+				    }
+					RGB_ON();	 
+					}
 }
 if(msec=='0'&&sec!='0'){
 msec='9';
@@ -145,6 +164,19 @@ if(msec=='0'&&sec=='0'&&min=='0'&&mmin=='0'){
 
 
 }
-}}
+}
+Buzzer_ON();
+	for( i=0 ; i< 3 ; i++ ){
+		RGB_OFF();
+		delay_ms(500);
+    RGB_ON();
+		delay_ms(500);
+    RGB_OFF();		
+	}
+	Buzzer_OFF();
+	return 0;
+
+
+}
 //====================================================================================================
 
