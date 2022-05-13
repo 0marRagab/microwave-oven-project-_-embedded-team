@@ -25,16 +25,10 @@
 9- call RGB_OFF() to turn of the RGB array
 
 
-10- call RGB_BLINK() to blink the RGB array
-                         
-  
-11- call RGB_FlASH() to Flash the RGB array 3 times
+10- call Red_ON() to turn on the external red led
 
 
-12- call Red_ON() to turn on the external red led
-
-
-13- call Red_OFF() to turn off the external red led
+11- call Red_OFF() to turn off the external red led
 
              
 
