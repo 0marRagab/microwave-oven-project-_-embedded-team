@@ -11,7 +11,7 @@ Members:
 2-Omar karam                      19       
 3-Yassmen                         19          
 4-Shaimaa                         19        
-5-Mina Gamal                      19         
-6-Moustafa                        19       
-7-Youssef                         19            
+5-Mina Gamal Fayez Labib          1900101                   
+6-Moustafa Yasser Abdelmonem      1900092       
+7-Youssef Emad                    19            
 8-Tarek Magdy Sayed               1900702
