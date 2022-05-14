@@ -1,7 +1,7 @@
 Introduction to Embedded Systems-Micriwove Oven 
-Controller Sysytem Project-using TIVA C - ARM Cortex M processor
+Controller Sysytem Project By Using TIVA C - ARM Cortex M processor
 
-This project is Done by Group of 9 members of CSE and ECE departements at Faculty of Engineering Ain Shams Univeristy.
+This project is Done by Group of 8 members of CSE and ECE departements at Faculty of Engineering Ain Shams Univeristy.
 
 
 Members:
