@@ -35,3 +35,16 @@
                                               PD2|---------------->|RS        
                     
  */
+
+//Some LCD Commands in Hexadecimal
+
+#define lcd_Clear            0x01                 // replace all characters with ASCII 'space'
+#define lcd_Home             0x02                // return cursor to first position on first line
+#define lcd_EntryMode        0x06               // shift cursor from left to right on read/write
+#define lcd_DisplayOff       0x08              // turn display off
+#define lcd_DisplayOn        0x0F             // display on Cursor Blink
+#define lcd_DisplayOn_Coff   0x0C            // display on Cursor off
+#define lcd_FunctionReset    0x30           // reset the LCD
+#define lcd_FunctionSet8bit  0x38          // 8-bit data, 2-line display, 5 x 7 font
+#define first_line1          0x80         // set cursor position in first row
+#define first_line2          0xC0        // set cursor position in second row
