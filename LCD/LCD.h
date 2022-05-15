@@ -73,10 +73,7 @@ void lcd_print();
 //Interface to start the writing process at certain digit in the LCD, call setCursor(col,row)
 void lcd_setCursor(u8 x,u8 y);    
 
-// Function used to make timer on LCD
-// call lcd_timer (char array of counter digits without coulmn ex to set timer for 2 min lcd_timer(0200) )
-int lcd_timer(u8* x);
-int super_timer(u8 min,u8 mmin,u8 sec,u8 msec);
+
 void lcd_string(u8 str1,u8 str2,u8 str3,u8 str4,u8 str5);
 
 #endif
