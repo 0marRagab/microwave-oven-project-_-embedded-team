@@ -76,6 +76,6 @@ void lcd_setCursor(u8 x,u8 y);
 // Function used to make timer on LCD
 // call lcd_timer (char array of counter digits without coulmn ex to set timer for 2 min lcd_timer(0200) )
 int lcd_timer(u8* x);
-
+int super_timer(u8 min,u8 mmin,u8 sec,u8 msec);
 
 #endif
