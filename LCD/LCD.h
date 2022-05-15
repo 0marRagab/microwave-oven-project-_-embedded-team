@@ -49,7 +49,33 @@
 #define first_line1          0x80         // set cursor position in first row
 #define first_line2          0xC0        // set cursor position in second row
 
+//initilization port B for data
+void PortB_Init(void);
+	
+// initilization port D for en,rs,rw
+void PortD_Init(void);
 
+//Interface to send the configuration commands to the LCD Driver
+void lcd_cmd(u8 cmd);
+
+// Clear the Display
+void lcd_clear();
+
+//Apply initialization sequence for LCD module
+void init_lcd(void);   
+
+//Interface to write character on LCD screen        
+void lcd_write(u8 data);
+
+//Interface to write string on LCD screen
+void lcd_print(); 
+
+//Interface to start the writing process at certain digit in the LCD, call setCursor(col,row)
+void lcd_setCursor(u8 x,u8 y);    
+
+// Function used to make timer on LCD
+// call lcd_timer (char array of counter digits without coulmn ex to set timer for 2 min lcd_timer(0200) )
+int lcd_timer(u8* x);
 
 
 #endif
