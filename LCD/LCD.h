@@ -48,3 +48,8 @@
 #define lcd_FunctionSet8bit  0x38          // 8-bit data, 2-line display, 5 x 7 font
 #define first_line1          0x80         // set cursor position in first row
 #define first_line2          0xC0        // set cursor position in second row
+
+
+
+
+#endif
