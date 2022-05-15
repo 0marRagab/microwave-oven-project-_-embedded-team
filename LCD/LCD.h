@@ -73,7 +73,7 @@ void lcd_print();
 //Interface to start the writing process at certain digit in the LCD, call setCursor(col,row)
 void lcd_setCursor(u8 x,u8 y);    
 
-
+//printing concatenating charcters on screen
 void lcd_string(u8 str1,u8 str2,u8 str3,u8 str4,u8 str5);
 
 #endif
