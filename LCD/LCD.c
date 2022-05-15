@@ -47,8 +47,8 @@ delay_ms(1);
 lcd_cmd(lcd_EntryMode);
 delay_ms(1);
 	
- // Turn Display ON with Cursor Blinking  
-lcd_cmd(lcd_DisplayOn);
+ // Turn Display ON with Cursor off  
+lcd_cmd(lcd_DisplayOn_Coff);
 delay_ms(1);
 	
 // Clear Display 
