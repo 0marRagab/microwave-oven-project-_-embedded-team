@@ -117,7 +117,7 @@ return;
 
 //====================================================================================================
 
-void lcd_string(u8 str1,u8 str2,u8 str3,u8 str4,u8 str5)  
+void lcd_string(u8 str1,u8 str2,u8 str3,u8 str4,u8 str5)  //printing concatenating charcters on screen
 {
 lcd_write(str1);
 lcd_write(str2);
