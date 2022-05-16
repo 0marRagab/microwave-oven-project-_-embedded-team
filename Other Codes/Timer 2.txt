@@ -1,3 +1,8 @@
+#include "tm4c123gh6pm.h"
+#include "Gpio.h"
+#include "delay.h"
+#include "LCD.h"
+
 // Function used to make timer on LCD
 // call lcd_timer (char array of counter digits without coulmn ex to set timer for 2 min lcd_timer(0200) )
 int lcd_timer(u8* x){
@@ -71,7 +76,7 @@ int lcd_timer(u8* x){
 	return 0;
 }
 
-void main()
+int main()
 {
 char t[]= "0059";     // a testing array to test the timer function
 	init_lcd();
