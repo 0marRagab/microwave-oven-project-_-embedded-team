@@ -1,0 +1,16 @@
+This folder (Other Codes folder) contains the codes which we are working on it in parallel
+
+//-----------------------------------------------------------------------------
+
+for example ======> The timer Function
+
+there were more than one person working on it and each person has his own idea to implement it
+
+so, everyone started to implement his own idea so, finally we have many implementaion for the timer 
+
+then we tested them and choose the working one and the best one in coding style "we have chosen the most Optimized one " and used it in the main code
+
+Note: the 3 timer functions were working fine but we have choosen the most optimized one
+
+
+
