@@ -117,13 +117,13 @@ char s2 = t[3];
 
 int main(){
 	
-	char t[4]= "1112";
+	char t[4]= "1112";     // a testing array to test the timer function
 	init_lcd();
-
-  lcd_print("Cooking Time");
+	
+	lcd_print("Cooking Time");
 	delay_ms(1000);
   
-  timer(t);
+        timer(t);
 
 
 }
