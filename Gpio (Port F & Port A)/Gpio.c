@@ -1,7 +1,11 @@
 #include "tm4c123gh6pm.h"
 #include "Gpio.h"
 
-// Initialization of Port F
+/*                                    ******************************
+************************************** ___PortF_Init() function___  **************************************
+                                      ******************************
+Initialization of Port F
+*/
 void PortF_Init(){
 	SYSCTL_RCGCGPIO_R |=0x20;                      //Activate the Clock on PortF
 	while((SYSCTL_PRGPIO_R&0x20) == 0){}          //Wait until the Clock is Activated                            
