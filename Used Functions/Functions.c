@@ -27,7 +27,7 @@ void RGB_FLASH() {                           // call RGB_FlASH() to Flash the RG
         delay_ms(500);
 }
 
- 
+ //call super_timer to display timer on screen
 int super_timer(u8 min,u8 mmin,u8 sec,u8 msec){
 	int i;
 	if(mmin=='9'){min++;
