@@ -1,5 +1,5 @@
 # Microwave Oven Controller System Project #
-This project is for *Introduction to Embedded Systems* Course and simulates a **microwave device** using some electrical components like: ( LCD, Keypad, Push Buttons, Buzzer and LEDS ) to simulate its different modes of working like ( cooking, stop, pause, resume, and finish ) using ARM Cortex-M4 processor, Tiva C series EK-TM4C123GH6PM board.
+This project is for *Introduction to Embedded Systems* Course and simulates a **microwave device** using some electrical components like: (LCD, Keypad, Push Buttons, Buzzer and LEDS) to simulate its different modes of working like (cooking, stop, pause, resume and finish) using ARM Cortex-M4 processor, Tiva C series EK-TM4C123GH6PM board.
 
 ## Language used ##
 Embedded C
@@ -16,3 +16,4 @@ This project is Done by Group of 8 members of CSE and ECE departements at Facult
 |Moustafa Yasser Abdelmonem|1900092|
 |Youssef Emad mohamed|1701739|
 |Shimaa Rashad Saeed Nassar|1901338|
+
