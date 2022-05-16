@@ -77,3 +77,36 @@ char keypad_getkey_caseD(void)
   }
 	return 'z';
 }
+//get pressed key and save it to use later
+u8 check1( u8 ch[])
+{ 
+static int index=0;
+	
+	int i;
+	int j;
+	if(index>3){	index=0;}
+  while(sw2_in()==0)
+  {
+		
+		
+    for(i = 0; i < 4; i++)                        //columns traverse
+    {
+      GPIO_PORTC_DATA_R = (1U << i+4);
+      delay_us(2);
+      for(j = 0; j < 4; j++)                     //raws traverse
+      {
+        if((GPIO_PORTE_DATA_R & 0x1E) & (1U << j+1)){
+					ch[index]=symbol[j][i];
+					index++;
+					
+					
+          return symbol[j][i];}
+      }
+    }
+  }
+	
+	return ';';
+	
+
+	
+}
