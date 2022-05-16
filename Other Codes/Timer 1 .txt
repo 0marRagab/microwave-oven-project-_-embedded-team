@@ -3,6 +3,7 @@
 #include "LCD.h"
 
 
+// this function is a timer function ---> call timer(t) ---> t is a character array ---> example to set a timer for 2 minutes --> timer("0200")
 
 void timer(char* t){
 char m1 = t[0];
