@@ -9,11 +9,13 @@
 // Keypad_Init() configures PORTC and PORTA to scan keypad keys
 void Keypad_Init(void);
 
-// put func here
+// This function returns the character presses in the keypad
 u8 Keypad_Getkey(void);
 
 // Function used to get number from user in case d
 char keypad_getkey_caseD(void);
+
 //get pressed key and save it 
 u8 check1( u8 ch[]);
+
 #endif
