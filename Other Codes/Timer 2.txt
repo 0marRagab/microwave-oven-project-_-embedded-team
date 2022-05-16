@@ -1,0 +1,84 @@
+// Function used to make timer on LCD
+// call lcd_timer (char array of counter digits without coulmn ex to set timer for 2 min lcd_timer(0200) )
+int lcd_timer(u8* x){
+	char i,j,k,l;
+	char y = x[0];
+	char m = x[1];
+	char n = x[2];
+	char z = x[3];
+	if (n>'5'& (y>'0' | m>'0'))
+	{
+	m++;
+	n=(n-'6')+48;
+	if(m>'9')
+	{
+	m='0';
+	y++;
+	}
+	}
+	RGB_ON();
+	lcd_setCursor(9,2);
+	lcd_write(':');
+	for(i=y ; i>='0' ; i--){
+		lcd_setCursor(7,2);
+		lcd_write(i);
+		for (j=m ; j>='0' ; j--){
+			lcd_setCursor(8,2);
+			lcd_write(j);
+			for (k=n ; k>='0' ; k--){
+				lcd_setCursor(10,2);
+				lcd_write(k);
+				for (l=z ; l>='0' ; l--){
+					lcd_setCursor(11,2);
+					lcd_write(l);
+					delay_m_s(1000);
+					
+					if (sw1_in()==1) {
+            while (sw2_in()==0)
+             {
+							delay_ms(500); 
+              RGB_OFF();
+		          delay_m_s(1000);
+		          RGB_ON();
+		          delay_m_s(1000); 
+              if(sw1_in() ==1)
+              {
+								RGB_OFF();
+								lcd_clear();
+								lcd_print("cooking stoped");
+								delay_ms(2000);
+                return 0; 
+              }
+				    }
+					RGB_ON();	 
+					}
+				z='9';
+			}
+			n='5';
+		}
+		m='9';
+	}
+}
+	Buzzer_ON();
+	for( i=0 ; i< 3 ; i++ ){
+		RGB_OFF();
+		delay_m_s(500);
+    RGB_ON();
+		delay_m_s(500);
+    RGB_OFF();		
+	}
+	Buzzer_OFF();
+	return 0;
+}
+
+void main()
+{
+char t[]= "0059";     // a testing array to test the timer function
+	init_lcd();
+	
+	lcd_print("Cooking Time");
+	delay_ms(1000);
+  
+        lcd_timer(t);
+
+}
