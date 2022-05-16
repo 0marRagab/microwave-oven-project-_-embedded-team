@@ -100,3 +100,18 @@ char s2 = t[3];
 }
 
 
+
+int main(){
+	
+	char t[4]= "1112";
+	init_lcd();
+
+  lcd_print("Cooking Time");
+	delay_ms(1000);
+  
+  timer(t);
+
+
+}
+
+
