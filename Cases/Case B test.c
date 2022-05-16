@@ -8,6 +8,7 @@
 
 
 int main(){
+	char key;
 	unsigned char my_temp;
 	unsigned char weight;
 	unsigned char time_arr[5];
