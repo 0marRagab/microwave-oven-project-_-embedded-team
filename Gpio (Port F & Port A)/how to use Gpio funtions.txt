@@ -1,7 +1,7 @@
-1- call PortF_Init(); To initialize Port F
+1- call PortF_Init() To initialize Port F
 
 
-2-call PortA_Init();  To initialize Port A 
+2- call PortA_Init() To initialize Port A 
 
 
 3- call sw1_in() to know if switch 1 is pressed or not, this functions returns 1 if sw1 is pressed and 0 if not Pressed
