@@ -1,3 +1,23 @@
+#include "tm4c123gh6pm.h"
+#include "LCD.h"
+#include "delay.h"
+#include "keypad.h"
+#include "Gpio.h"
+
+
+
+int main() {
+char key;	
+SysTick_Init();
+init_lcd();
+Keypad_Init();
+	
+	
+while(1) {
+	
+key = Keypad_Getkey();	
+	
+switch(key)	
 case 'C':
 	
 	while(i){
@@ -30,3 +50,5 @@ case 'C':
 	}
 	
 	break;
+}
+}
