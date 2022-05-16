@@ -1,0 +1,84 @@
+case 'D':
+				lcd_clear();
+				lcd_setCursor(1,1);
+				lcd_print("cooking time");
+				while (sw2_in()==0){
+				temp =keypad_getkey_caseD();
+index = num_input(temp);
+lcd_setCursor(9,2);
+lcd_write(':');
+if (index ==1)
+{
+u[3]=temp;
+lcd_setCursor(7,2);
+lcd_write(u[0]);
+lcd_setCursor(8,2);
+lcd_write(u[1]);
+lcd_setCursor(10,2);
+lcd_write(u[2]);
+lcd_setCursor(11,2);
+lcd_write(u[3]);
+}	
+else if (index==2)
+{
+u[2]=u[3];
+u[3]=temp;
+lcd_setCursor(7,2);
+lcd_write(u[0]);
+lcd_setCursor(8,2);
+lcd_write(u[1]);
+lcd_setCursor(10,2);
+lcd_write(u[2]);
+lcd_setCursor(11,2);
+lcd_write(u[3]);
+}
+else if (index==3)
+{
+u[1]=u[2];
+u[2]=u[3];	
+u[3]=temp;
+lcd_setCursor(7,2);
+lcd_write(u[0]);
+lcd_setCursor(8,2);
+lcd_write(u[1]);
+lcd_setCursor(10,2);
+lcd_write(u[2]);
+lcd_setCursor(11,2);
+lcd_write(u[3]);
+}
+else if (index==4)
+{
+u[0]=u[1];
+u[1]=u[2];
+u[2]=u[3];	
+u[3]=temp;
+lcd_setCursor(7,2);
+lcd_write(u[0]);
+lcd_setCursor(8,2);
+lcd_write(u[1]);
+lcd_setCursor(10,2);
+lcd_write(u[2]);
+lcd_setCursor(11,2);
+lcd_write(u[3]);
+}
+else if (index ==5)
+{
+u[0]='0';u[1]='0';u[2]='0';u[3]='0';
+lcd_setCursor(7,2);
+lcd_write(u[0]);
+lcd_setCursor(8,2);
+lcd_write(u[1]);
+lcd_setCursor(10,2);
+lcd_write(u[2]);
+lcd_setCursor(11,2);
+lcd_write(u[3]);
+}
+
+if(sw2_in()==1){
+break;
+}
+}
+lcd_timer(u);
+u[0]='0';u[1]='0';u[2]='0';u[3]='0';
+
+break;
