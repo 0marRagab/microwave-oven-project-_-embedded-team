@@ -57,8 +57,10 @@ case'D':
 				ch[0]='0',ch[1]='0',ch[2]='0',ch[3]='0';
 	}
 		
-	else if(x==5){lcd_setCursor(6,2);
-	  lcd_string('0','0',':','0','0');}
+	else if(x==5){
+	lcd_setCursor(6,2);
+	 lcd_string('0','0',':','0','0');
+	}
 	 
 	x++;
 
@@ -67,7 +69,8 @@ case'D':
 	
 	}
 	lcd_setCursor(6,2);
-	super_timer(q[0],q[1],q[2],q[3]);}
+	super_timer(q[0],q[1],q[2],q[3]);
+	}
         break;
 }
 }
