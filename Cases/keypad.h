@@ -12,4 +12,8 @@ void Keypad_Init(void);
 // put func here
 u8 Keypad_Getkey(void);
 
+// Function used to get number from user in case d
+char keypad_getkey_caseD(void);
+ 
+
 #endif
