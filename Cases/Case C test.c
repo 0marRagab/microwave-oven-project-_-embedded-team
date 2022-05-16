@@ -4,7 +4,12 @@
 #include "keypad.h"
 #include "Gpio.h"
 
-
+unsigned int mod(u32 num, u32 div){		// func to return remainder (modulo)
+	while (num >= div){
+		num = num - div;
+	}
+	return num;
+}
 
 int main() {
 char key;	
