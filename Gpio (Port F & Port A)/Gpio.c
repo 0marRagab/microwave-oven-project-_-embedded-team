@@ -20,6 +20,11 @@ void PortF_Init(){
 }
 
 
+/*                                    ******************************
+************************************** ___PortA_Init() function___  **************************************
+                                      ******************************
+*/
+
 // Initialization of Port A
 void PortA_Init(){
 	SYSCTL_RCGCGPIO_R |=0x01;                            //Activate the Clock on PortA
@@ -41,6 +46,12 @@ void PortA_Init(){
 }
 
 
+
+/*                                    ******************************
+************************************** ___sw1_in() function___  **************************************
+                                      ******************************
+*/
+
  // This function returns 1 if sw1 is pressed and returns 0 if not pressed
 int sw1_in()
 {                                 
@@ -53,7 +64,14 @@ int sw1_in()
     {
       return(0);
     }
-}	
+}
+
+
+
+/*                                    ******************************
+************************************** ___sw2_in() function___  **************************************
+                                      ******************************
+*/
 
 // This function returns 1 if sw2 is pressed and returns 0 if not pressed
 int sw2_in()
@@ -69,6 +87,13 @@ int sw2_in()
   }
 }
 
+
+
+/*                                    ******************************
+************************************** ___sw3_in() function___  **************************************
+                                      ******************************
+*/
+
 // This function returns 1 if sw3 is pressed and returns 0 if not pressed	
 int sw3_in()
 {                                
@@ -83,11 +108,25 @@ int sw3_in()
   }
 }
 
-  // call Buzzer_ON() to turn on the buzzer	
+
+
+/*                                    ******************************
+************************************** ___Buzzer_ON() function___  **************************************
+                                      ******************************
+*/
+
+// call Buzzer_ON() to turn on the buzzer	
 void Buzzer_ON()
 {                            	
 GPIO_PORTA_DATA_R |= 0x08;
-}	
+}
+
+
+
+/*                                    ******************************
+************************************** ___Buzzer_OFF() function___  **************************************
+                                      ******************************
+*/
 
  // call Buzzer_OFF() to turn off the buzzer
 void Buzzer_OFF()
@@ -95,11 +134,27 @@ void Buzzer_OFF()
 GPIO_PORTA_DATA_R &= 0xB7;
 }
 
+
+
+
+
+/*                                    ******************************
+************************************** ___RGB_ON() function___  **************************************
+                                      ******************************
+*/
+
  // call RGB_ON() to turn on the RGB array
 void RGB_ON() 
 {                           
 GPIO_PORTF_DATA_R |= 0x0E;
 }
+
+
+
+/*                                    ******************************
+************************************** ___RGB_OFF() function___  **************************************
+                                      ******************************
+*/
 
 // call RGB_OFF() to turn of the RGB array
 void RGB_OFF() 
@@ -107,11 +162,23 @@ void RGB_OFF()
 GPIO_PORTF_DATA_R &= 0x11;
 }
 
+
+/*                                    ******************************
+************************************** ___Red_ON() function___  **************************************
+                                      ******************************
+*/
+
 // call Red_ON() to turn on the external red led
 void Red_ON()
 {                              	
 GPIO_PORTA_DATA_R |= 0x04;
 }
+
+
+/*                                    ******************************
+************************************** ___Red_OFF() function___  **************************************
+                                      ******************************
+*/
 
  // call Red_OFF() to turn off the external red led
 void Red_OFF()
