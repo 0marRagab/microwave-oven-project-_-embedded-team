@@ -1,10 +1,10 @@
 case 'C':
-  
+	
 	while(i){
-	    lcd_clear();
-	    lcd_setCursor(1,1);
-	    lcd_print("Chicken weight?");
-	    lcd_setCursor(1,2);
+		lcd_clear();
+		lcd_setCursor(1,1);
+	    	lcd_print("Chicken weight?");
+	    	lcd_setCursor(1,2);
 		lcd_print("weight:");
 		index=0;
 		lcd_setCursor(8,2);
@@ -18,15 +18,15 @@ case 'C':
 			}
 		}
 		if (index==1){
-            // put Ur code here
-            
+			// put Ur code here
+			
 		}else{
-            lcd_setCursor(8,2);
-            lcd_print("       ");
-            lcd_setCursor(8,2);
-            lcd_print("Err");
-            delay_ms(2000);
-        }
+			lcd_setCursor(8,2);
+			lcd_print("       ");
+			lcd_setCursor(8,2);
+			lcd_print("Err");
+			delay_ms(2000);
+		}
 	}
-    
-    break;
+	
+	break;
