@@ -120,23 +120,3 @@ u8 check1( u8 ch[])
  }
 
 
-// Function used to get number from user in case d
-char keypad_getkey_caseD(void)
-{
-	int i;
-	int j;
-  while(sw2_in()==0 & sw1_in()==0)
-  {
-    for(i = 0; i < 4; i++)                        //columns traverse
-    {
-      GPIO_PORTC_DATA_R = (1U << i+4);
-      delay_us(2);
-      for(j = 0; j < 4; j++)                     //raws traverse
-      {
-        if((GPIO_PORTE_DATA_R & 0x1E) & (1U << j+1))
-          return symbol[j][i];
-      }
-    }
-  }
-	return 'z';
-}
