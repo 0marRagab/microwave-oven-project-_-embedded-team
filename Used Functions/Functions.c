@@ -4,6 +4,14 @@
 #include "Gpio.h"
 
 
+unsigned int mod(u32 num, u32 div){		// func to return remainder (modulo)
+	while (num >= div){
+		num = num - div;
+	}
+	return num;
+}
+
+
 void RGB_BLINK() {                            // call RGB_BLINK() to blink the RGB array
 	
 	GPIO_PORTF_DATA_R ^= 0x0E;
