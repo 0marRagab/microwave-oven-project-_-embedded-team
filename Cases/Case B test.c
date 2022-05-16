@@ -5,7 +5,6 @@
 #include "LCD.h"
 #include "Std_INT.h"
 
-void SystemInit();
 
 
 int main(){
@@ -24,8 +23,19 @@ int main(){
 	SysTick_Init();
   
 	while(1){
-		time_arr[0]='0'; time_arr[3]='0'; 		// time always be 0x:x0 
-		while(i){
+		
+	key = Keypad_Getkey();	
+	
+       switch(key)	
+       {
+		       
+	       case 'B':	       
+		             
+		       
+		       time_arr[0]='0'; time_arr[3]='0'; 		        // since time always be 0x:x0 
+		       
+		       while(i){
+			       
 			lcd_clear();
 			lcd_setCursor(1,1);
 			lcd_print("Beef weight?");
@@ -77,4 +87,5 @@ delay_ms(2000);
 }
 lcd_timer(time_arr);
 break;
-			
+       }		
+	}
