@@ -32,7 +32,7 @@ case 'A':
 				lcd_clear();
 				lcd_setCursor(5,1);                    
 				lcd_print("Popcorn");
-				super_timer('0','1',':','0','0');
+				super_timer('0','1','0','0');
 				break;
 
 	
