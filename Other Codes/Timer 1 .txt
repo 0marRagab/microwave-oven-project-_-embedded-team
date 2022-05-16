@@ -9,25 +9,33 @@ char m1 = t[0];
 char m2 = t[1];
 char s1 = t[2];
 char s2 = t[3];
+
 	lcd_setCursor(11,2);
 		    lcd_write(s2);
+		    
 	lcd_setCursor(10,2);
 		    lcd_write(s1);
-		lcd_setCursor(7,2);
-	      lcd_print(":");
+		    
+        lcd_setCursor(7,2);
+	            lcd_print(":");
+		    
 	lcd_setCursor(8,2);
 		    lcd_write(m2);
+		    
 	lcd_setCursor(7,2);
 		     lcd_write(m1);
+		     
 	
 	ss2:	if(s2 > '0')
 		  {
 		   	while(s2 >= '0'){
-				lcd_setCursor(11,2);
-		    lcd_write(s2);
-					delay_ms(1000);
-					s2--;
+			
+		            lcd_setCursor(11,2);
+		            lcd_write(s2);
+			    delay_ms(1000);
+			    s2--;
 		   }                       }
+		   
 			s2 = '0';
 	
 			  
@@ -36,17 +44,19 @@ char s2 = t[3];
 			 if(s1 > '0')
 		  {
 		   	while(s1>= '0'){
-				lcd_setCursor(10,2);   
-		    lcd_write(s1);         
-					delay_ms(1000);
-					s1--;
-					lcd_setCursor(10,2);
-					lcd_write(s1);
-					s2 = '9';
-					
-					goto ss2;
+			
+			   lcd_setCursor(10,2);   
+		           lcd_write(s1);         
+			   delay_ms(1000);
+			   s1--;
+			   
+			   lcd_setCursor(10,2);
+			   lcd_write(s1);
+			   s2 = '9';	
+			   goto ss2;
 					
 		   }                       }
+		   
 			
 			 s2 = '0';
 			
@@ -55,21 +65,23 @@ char s2 = t[3];
 			 if(m2 > '0')
 		  {
 		   	while(m2 >= '0'){
+			
 				lcd_setCursor(8,2);   
-		    lcd_write(m2);        
-					delay_ms(1000);
-					m2--;
-					lcd_setCursor(8,2);
-					lcd_write(m2);
-					s1 = '5';
-					s2 = '9';
-					lcd_setCursor(10,2);
-					lcd_write(s1);
-					lcd_setCursor(11,2);   
-		      lcd_write(s2);         
-					goto ss2; 
+		                lcd_write(m2);        
+				delay_ms(1000);
+				m2--;
+				lcd_setCursor(8,2);
+				lcd_write(m2);
+				s1 = '5';
+				s2 = '9';
+				lcd_setCursor(10,2);
+				lcd_write(s1);
+				lcd_setCursor(11,2);   
+		                lcd_write(s2);         
+				goto ss2; 
 					
 		   }                       }
+		   
 			
 			 m2 = '0';
 			
@@ -77,22 +89,23 @@ char s2 = t[3];
 			  if(m1 > '0')
 		  {
 		   	while(m1 >= '0'){
+			
 				lcd_setCursor(7,2);  
-		      lcd_write(m1);     
-					delay_ms(1000);
-					m1--;
-					lcd_setCursor(7,2);
-					lcd_write(m1);
-					m2 = '9'; 
-					s1 = '5';
-					s2 = '9';
-					lcd_setCursor(8,2);
-					lcd_write(m2);
-					lcd_setCursor(10,2);
-					lcd_write(s1);
-					lcd_setCursor(11,2);   
-		      lcd_write(s2);         
-					goto ss2;
+		                lcd_write(m1);     
+				delay_ms(1000);
+				m1--;
+				lcd_setCursor(7,2);
+				lcd_write(m1);
+				m2 = '9'; 
+				s1 = '5';
+				s2 = '9';
+				lcd_setCursor(8,2);
+				lcd_write(m2);
+				lcd_setCursor(10,2);
+				lcd_write(s1);
+				lcd_setCursor(11,2);   
+		                lcd_write(s2);         
+				goto ss2;
 					
 		   }                       }
 
