@@ -1,13 +1,9 @@
 Introduction to Embedded Systems-Micriwove Oven 
-Controller Sysytem Project By Using TIVA C - ARM Cortex M processor
-the project is simulating a microwave device using some components like (LCd,keypad,bush buttons,buzzer &leds)to simulate microwave in different modes(cooking,stopped,paused,and finished )  
+Controller Sysytem Project By Using TIVA C - ARM Cortex M processor. the project is simulating a microwave device using some components like (LCd,keypad,bush buttons,buzzer &leds)to simulate microwave in different modes(cooking,stopped,paused,and finished )  
 
 This project is Done by Group of 8 members of CSE and ECE departements at Faculty of Engineering Ain Shams Univeristy.
 
-
 Members:
-
-
 1- Omar Ragab Mohamed              1901171
 
 2- Mina Gamal Fayez Labib          1900101
