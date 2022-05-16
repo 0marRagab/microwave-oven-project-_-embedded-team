@@ -67,7 +67,7 @@ u8 keypad_getkey(void)
 /*                                    *************************************
 ************************************** ___keypad_getkey_caseD()function___ ***************************************
                                       *************************************
-Function used to get number from user in case d
+Special Function used to get number from user in case d
 */ 
 char keypad_getkey_caseD(void)
 {
