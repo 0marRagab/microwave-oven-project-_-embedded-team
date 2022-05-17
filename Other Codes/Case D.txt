@@ -17,83 +17,113 @@ case 'D':
 				lcd_clear();
 				lcd_setCursor(1,1);
 				lcd_print("cooking time");
+				lcd_setCursor(11,2);
+				y = u[0];
+				m = u[1];
+				n = u[2];
+				z = u[3];
 				while (sw2_in()==0){
 				temp =keypad_getkey_caseD();
-index = num_input(temp);
-lcd_setCursor(9,2);
-lcd_write(':');
+				index = num_input(temp);
+				lcd_setCursor(9,2);
+				lcd_write(':');
+if (sw1_in()== 1 )
+{
+y='0';m='0';n='0';z='0';
+lcd_setCursor(7,2);
+lcd_write(y);
+lcd_setCursor(8,2);
+lcd_write(m);
+lcd_setCursor(10,2);
+lcd_write(n);
+lcd_setCursor(11,2);
+lcd_write(z);
+}
 if (index ==1)
 {
-u[3]=temp;
+y=m;
+m=n;
+n=z;
+z=temp;
 lcd_setCursor(7,2);
-lcd_write(u[0]);
+lcd_write(y);
 lcd_setCursor(8,2);
-lcd_write(u[1]);
+lcd_write(m);
 lcd_setCursor(10,2);
-lcd_write(u[2]);
+lcd_write(n);
 lcd_setCursor(11,2);
-lcd_write(u[3]);
+lcd_write(z);
 }	
 else if (index==2)
 {
-u[2]=u[3];
-u[3]=temp;
+y=m;
+m=n;
+n=z;
+z=temp;
 lcd_setCursor(7,2);
-lcd_write(u[0]);
+lcd_write(y);
 lcd_setCursor(8,2);
-lcd_write(u[1]);
+lcd_write(m);
 lcd_setCursor(10,2);
-lcd_write(u[2]);
+lcd_write(n);
 lcd_setCursor(11,2);
-lcd_write(u[3]);
+lcd_write(z);
 }
 else if (index==3)
 {
-u[1]=u[2];
-u[2]=u[3];	
-u[3]=temp;
+y=m;
+m=n;
+n=z;	
+z=temp;
 lcd_setCursor(7,2);
-lcd_write(u[0]);
+lcd_write(y);
 lcd_setCursor(8,2);
-lcd_write(u[1]);
+lcd_write(m);
 lcd_setCursor(10,2);
-lcd_write(u[2]);
+lcd_write(n);
 lcd_setCursor(11,2);
-lcd_write(u[3]);
+lcd_write(z);
 }
 else if (index==4)
 {
-u[0]=u[1];
-u[1]=u[2];
-u[2]=u[3];	
-u[3]=temp;
+y=m;
+m=n;
+n=z;	
+z=temp;
+	if(y>='3' && m>='0')
+	{
+		if(!(y=='3' && m=='0'&& n=='0' && z=='0') ){
+	lcd_setCursor(7,2);
+	lcd_print("error");
+	y='0' ; m='0' ; n='0' ; z='0';
+		}
+	}
 lcd_setCursor(7,2);
-lcd_write(u[0]);
+lcd_write(y);
 lcd_setCursor(8,2);
-lcd_write(u[1]);
+lcd_write(m);
+lcd_setCursor(9,2);
+lcd_write(':');
 lcd_setCursor(10,2);
-lcd_write(u[2]);
+lcd_write(n);
 lcd_setCursor(11,2);
-lcd_write(u[3]);
-}
-else if (index ==5)
-{
-u[0]='0';u[1]='0';u[2]='0';u[3]='0';
-lcd_setCursor(7,2);
-lcd_write(u[0]);
-lcd_setCursor(8,2);
-lcd_write(u[1]);
-lcd_setCursor(10,2);
-lcd_write(u[2]);
-lcd_setCursor(11,2);
-lcd_write(u[3]);
+lcd_write(z);
 }
 
-if(sw2_in()==1){
-break;
 }
-}
+				 u[0]=y;
+				 u[1]=m;
+				 u[2]=n;
+				 u[3]=z;
 lcd_timer(u);
 u[0]='0';u[1]='0';u[2]='0';u[3]='0';
 
 break;
+				
+			default:
+				lcd_setCursor(6,2);
+				lcd_print("Err");
+				delay_ms(2000);
+		}
+	}
+}
