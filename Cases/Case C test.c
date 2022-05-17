@@ -62,7 +62,7 @@ int main() {
 						delay_ms(2000);
 					}
 				}
-				lcd_timer(time_arr);
+				super_timer(time_arr[0],time_arr[1],time_arr[2],time_arr[3]);
 				break;
 		}
 	}
