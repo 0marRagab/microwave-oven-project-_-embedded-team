@@ -23,9 +23,8 @@ void PortF_Init(){
 /*                                    ******************************
 ************************************** ___PortA_Init() function___  **************************************
                                       ******************************
+Initialization of Port A
 */
-
-// Initialization of Port A
 void PortA_Init(){
 	SYSCTL_RCGCGPIO_R |=0x01;                            //Activate the Clock on PortA
 	while((SYSCTL_PRGPIO_R&0x01) == 0){}                //Wait until the Clock is Activated                        
@@ -47,12 +46,11 @@ void PortA_Init(){
 
 
 
-/*                                    ******************************
-************************************** ___sw1_in() function___  **************************************
-                                      ******************************
+/*                                    ****************************
+**************************************  ___sw1_in() function___  **************************************
+                                      ****************************
+This function returns 1 if sw1 is pressed and returns 0 if not pressed
 */
-
- // This function returns 1 if sw1 is pressed and returns 0 if not pressed
 int sw1_in()
 {                                 
   char x = GPIO_PORTF_DATA_R & 0x10;
@@ -69,11 +67,10 @@ int sw1_in()
 
 
 /*                                    ******************************
-************************************** ___sw2_in() function___  **************************************
+**************************************    ___sw2_in() function___   **************************************
                                       ******************************
+This function returns 1 if sw2 is pressed and returns 0 if not pressed 
 */
-
-// This function returns 1 if sw2 is pressed and returns 0 if not pressed
 int sw2_in()
 {                                  
  char y = GPIO_PORTF_DATA_R & 0x01;
@@ -89,12 +86,11 @@ int sw2_in()
 
 
 
-/*                                    ******************************
-************************************** ___sw3_in() function___  **************************************
-                                      ******************************
-*/
-
-// This function returns 1 if sw3 is pressed and returns 0 if not pressed	
+/*                                    *****************************
+**************************************   ___sw3_in() function___   **************************************
+                                      *****************************
+This function returns 1 if sw3 is pressed and returns 0 if not pressed
+*/	
 int sw3_in()
 {                                
  char z = GPIO_PORTA_DATA_R & 0x10;
@@ -111,11 +107,10 @@ int sw3_in()
 
 
 /*                                    ******************************
-************************************** ___Buzzer_ON() function___  **************************************
+**************************************  ___Buzzer_ON() function___  **************************************
                                       ******************************
+ call Buzzer_ON() to turn on the buzzer
 */
-
-// call Buzzer_ON() to turn on the buzzer	
 void Buzzer_ON()
 {                            	
 GPIO_PORTA_DATA_R |= 0x08;
@@ -126,9 +121,8 @@ GPIO_PORTA_DATA_R |= 0x08;
 /*                                    ******************************
 ************************************** ___Buzzer_OFF() function___  **************************************
                                       ******************************
+call Buzzer_OFF() to turn off the buzzer
 */
-
- // call Buzzer_OFF() to turn off the buzzer
 void Buzzer_OFF()
 {                       	
 GPIO_PORTA_DATA_R &= 0xB7;
@@ -138,12 +132,11 @@ GPIO_PORTA_DATA_R &= 0xB7;
 
 
 
-/*                                    ******************************
-************************************** ___RGB_ON() function___  **************************************
-                                      ******************************
+/*                                    *****************************
+**************************************   ___RGB_ON() function___  **************************************
+                                      *****************************
+ call RGB_ON() to turn on the RGB array
 */
-
- // call RGB_ON() to turn on the RGB array
 void RGB_ON() 
 {                           
 GPIO_PORTF_DATA_R |= 0x0E;
@@ -152,23 +145,21 @@ GPIO_PORTF_DATA_R |= 0x0E;
 
 
 /*                                    ******************************
-************************************** ___RGB_OFF() function___  **************************************
+**************************************   ___RGB_OFF() function___  **************************************
                                       ******************************
+ call RGB_OFF() to turn of the RGB array
 */
-
-// call RGB_OFF() to turn of the RGB array
 void RGB_OFF() 
 {                           
 GPIO_PORTF_DATA_R &= 0x11;
 }
 
 
-/*                                    ******************************
-************************************** ___Red_ON() function___  **************************************
-                                      ******************************
+/*                                    *****************************
+**************************************   ___Red_ON() function___   **************************************
+                                      *****************************
+ call Red_ON() to turn on the external red led
 */
-
-// call Red_ON() to turn on the external red led
 void Red_ON()
 {                              	
 GPIO_PORTA_DATA_R |= 0x04;
@@ -176,14 +167,13 @@ GPIO_PORTA_DATA_R |= 0x04;
 
 
 /*                                    ******************************
-************************************** ___Red_OFF() function___  **************************************
+**************************************   ___Red_OFF() function___   **************************************
                                       ******************************
+ call Red_OFF() to turn off the external red led
 */
-
- // call Red_OFF() to turn off the external red led
 void Red_OFF()
 {                         
-GPIO_PORTA_DATA_R &= 0xFB;
+GPIO_PORTA_DATA_R &= 0xFB ;
 }
 
 
