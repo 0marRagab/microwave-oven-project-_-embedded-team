@@ -2,9 +2,14 @@
 #include "tm4c123gh6pm.h"
 #include "delay.h"
 #include "Gpio.h"
+#include "LCD.h"
 
-
-unsigned int mod(u32 num, u32 div){	// func to return remainder (modulo)
+/*                                    ******************************
+**************************************   ___int mod() function___   **************************************
+                                      ******************************
+ func to return remainder (modulo)
+*/
+unsigned int mod(u32 num, u32 div){
 	while (num >= div){
 		num = num - div;
 	}
@@ -12,13 +17,23 @@ unsigned int mod(u32 num, u32 div){	// func to return remainder (modulo)
 }
 
 
-void RGB_BLINK() {                            // call RGB_BLINK() to blink the RGB array
+/*                                    ******************************
+**************************************  ___RGB_BLINK() function___  **************************************
+                                      ******************************
+ call RGB_BLINK() to blink the RGB array
+*/
+void RGB_BLINK() {                            
 	GPIO_PORTF_DATA_R ^= 0x0E;
 	delay_ms(500);
 }
 
+/*                                    *********************
+**************************************   ___RGB_FLASH___   **************************************
+                                      *********************
+ call RGB_FlASH() to Flash the RGB array 3 times
+*/
 
-void RGB_FLASH() {                           // call RGB_FlASH() to Flash the RGB array 3 times
+void RGB_FLASH() {                           
 	RGB_ON();
 	delay_ms(500);
 	RGB_OFF();
@@ -33,7 +48,13 @@ void RGB_FLASH() {                           // call RGB_FlASH() to Flash the RG
         delay_ms(500);
 }
 
- //call super_timer to display timer on screen
+
+/*                                    **************************
+**************************************     ___super_timer___    **************************************
+                                      **************************
+call super_timer to display timer on screen
+*/
+
 int super_timer(u8 min,u8 mmin,u8 sec,u8 msec){
 	int i;
 	if(mmin=='9'){
