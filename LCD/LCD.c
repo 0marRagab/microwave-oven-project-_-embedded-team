@@ -142,10 +142,10 @@ return;
 /*                                    ******************************
 **************************************  ___lcd_string() function___ **************************************
                                       ******************************
-				      
+printing concatenating charcters on screen				      
 */				      
-void lcd_string(u8 str1,u8 str2,u8 str3,u8 str4,u8 str5)  //printing concatenating charcters on screen
-{
+void lcd_string(u8 str1,u8 str2,u8 str3,u8 str4,u8 str5) 
+{	
 lcd_write(str1);
 lcd_write(str2);
 lcd_write(str3);
