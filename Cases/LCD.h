@@ -19,8 +19,6 @@
 /*
                   
                                       LCD wiring (pins connection) with tiva TM4C123gh6pm
-
-
                                               PB7|---------------->|D7        
                                               PB6|---------------->|D6        
                                               PB5|---------------->|D5        
