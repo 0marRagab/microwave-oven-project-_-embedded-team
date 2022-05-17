@@ -161,10 +161,4 @@ void Red_OFF(){
 }
 
 
-void Red_ON(){  // call Red_ON() to turn on the external red led
-	GPIO_PORTA_DATA_R |= 0x04;
-}	
 
-void Red_OFF(){  // call Red_OFF() to turn off the external red led
-	GPIO_PORTA_DATA_R &= 0xFB;
-}
