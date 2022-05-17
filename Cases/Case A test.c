@@ -7,20 +7,14 @@
 
 
 int main() {
-char key;	
-SysTick_Init();
-init_lcd();
-Keypad_Init();
-	
-	
-while(1) {
-	
-key = Keypad_Getkey();	
-	
-switch(key)
-{	
-	
-case 'A':
+	char key;
+	SysTick_Init();
+	init_lcd();
+	Keypad_Init();
+	while(1) {
+		key = Keypad_Getkey();	
+		switch(key){
+				case 'A':	
 				lcd_clear();
 				lcd_setCursor(5,1);                    
 				lcd_print("Popcorn");
@@ -34,8 +28,6 @@ case 'A':
 				lcd_print("Popcorn");
 				super_timer('0','1','0','0');
 				break;
-
-	
-         }	
-    }	
-         }
+		}
+	}
+}
