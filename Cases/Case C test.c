@@ -20,6 +20,7 @@ int main() {
 		key = Keypad_Getkey();	
 		switch(key){	
 			case 'C':
+				time_arr[0]='0'; 		// time always be 0x:xx
 				while(i){
 					lcd_clear();
 					lcd_setCursor(1,1);
@@ -39,6 +40,19 @@ int main() {
 					}
 					if (index==1){
 						// put Ur code here
+						weight = keypad_getkey() - 48;
+				if (weight <= 9){
+					time_arr[3]= mod(weight*2,10) + 48;
+					time_arr[2]= mod(weight,5) + 48;
+					if(weight < 5){
+						time_arr[1]='0';
+					}else{
+						time_arr[1]='1';
+					}
+				}else{
+					lcd_print("Err");
+					delay_ms(2000);
+				}//To be continued
 					}
 					else{
 						lcd_setCursor(8,2);
@@ -48,6 +62,7 @@ int main() {
 						delay_ms(2000);
 					}
 				}
+				lcd_timer(time_arr);
 				break;
 		}
 	}
