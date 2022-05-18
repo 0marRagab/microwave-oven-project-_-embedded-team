@@ -39,20 +39,30 @@ int main() {
 						}
 					}
 					if (index==1){
-						// put Ur code here
-						weight = keypad_getkey() - 48;
-				if (weight <= 9){
-					time_arr[3]= mod(weight*2,10) + 48;
-					time_arr[2]= mod(weight,5) + 48;
-					if(weight < 5){
-						time_arr[1]='0';
-					}else{
-						time_arr[1]='1';
-					}
-				}else{
-					lcd_print("Err");
-					delay_ms(2000);
-				}//To be continued
+						
+		if (u[0]<='9' & u[0]>='1'){		// check weight to be 1:9
+                weight=u[0];
+                weight = weight - 48;
+                lcd_clear();
+                lcd_setCursor(5,1);
+                lcd_print("Chicken");
+                lcd_setCursor(6,2);
+                time_arr[3]= mod(weight*2,10) + 48;
+                time_arr[2]= mod(weight,5) + 48;
+                if(weight < 5){
+                    time_arr[1]='0';
+                }else{
+                    time_arr[1]='1';
+                }
+                i=0;
+		    }else{
+                lcd_setCursor(8,2);
+                lcd_print("       ");
+                lcd_setCursor(8,2);
+                lcd_print("Err");
+                delay_ms(2000);
+            }
+				}
 					}
 					else{
 						lcd_setCursor(8,2);
