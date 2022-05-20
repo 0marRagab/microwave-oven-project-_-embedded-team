@@ -33,4 +33,5 @@ int main(){
 	PortA_Init();
 	init_lcd();
 	keypad_Init();
+}
 	SysTick_Init();
