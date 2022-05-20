@@ -34,4 +34,3 @@ int main(){
 	init_lcd();
 	keypad_Init();
 }
-	SysTick_Init();
