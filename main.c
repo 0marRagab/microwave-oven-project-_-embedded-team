@@ -43,7 +43,7 @@ int main(){
 				input = keypad_getkey();
 				if(input == '*'){
 					previous_state = initial_state;
-					state = choosing_state;  //goto choosing_state
+					state = choosing_state; 
 					break;
 				}
 				else{
