@@ -101,6 +101,18 @@ int main(){
 				break;
 				
 				
+			case popcorn_state:
+				lcd_clear();
+				lcd_setCursor(5,1);                    
+				lcd_print("Popcorn");
+				lcd_setCursor(2,2);
+		  		lcd_print ("EN s2 to start");
+				while(sw2_in()==0){}
+				previous_state = popcorn_state;
+				state = cooking_state;
+				break;
+				
+				
 			case done_state:
 				lcd_clear();
 				lcd_setCursor(1,1);
@@ -116,9 +128,7 @@ int main(){
 				Buzzer_OFF();
 				lcd_clear();
 				state = initial_state;
-				break;
-				
-				
+				break;		
 		}
 	}
 }
