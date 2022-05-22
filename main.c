@@ -163,6 +163,39 @@ int main(){
 				break;
 				
 				
+			case puase_state:
+				i = 1;
+				while(i){
+				RGB_OFF();
+				delay_m_s(1000);
+				RGB_ON();
+				delay_m_s(1000);
+				if(sw1_in() ==1){
+				  i=0;
+				  state = stop_state;
+				}
+				else if(sw2_in() == 1){
+				  i=1;
+				  previous_state = puase_state;
+				  state = cooking_state;
+				  break;
+				}
+			       }
+				break;
+			
+			
+			case stop_state:
+				RGB_OFF();
+				lcd_clear();
+				lcd_print("cooking stoped");
+				delay_ms(1500);
+				lcd_clear();
+			        i =1;	
+			        state = initial_state;
+			    break;
+				
+				
+				
 			case done_state:
 				lcd_clear();
 				lcd_setCursor(1,1);
