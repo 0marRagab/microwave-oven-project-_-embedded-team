@@ -161,7 +161,64 @@ int main(){
 					state = cooking_state;
 				}
 				break;
-				
+				case setTime_state:
+				while(i){
+				lcd_clear();
+				u[0]='0';u[1]='0';u[2]='0';u[3]='0';
+				lcd_setCursor(1,1);
+				lcd_print("cooking time?");
+				lcd_setCursor(6,2);
+				lcd_string('0','0',':','0','0');
+				y = u[0];
+				m = u[1];
+				n = u[2];
+				z = u[3];
+				while (sw2_in()==0){
+				temp =keypad_getkey_caseD();
+				index = num_input(temp);
+					if (sw1_in()== 1 ){
+						y='0';m='0';n='0';z='0';
+						lcd_setCursor(6,2);
+						lcd_string(y,m,':',n,z);
+					}
+					if (index ==1){
+						y=m;
+						m=n;
+						n=z;
+						z=temp;
+						lcd_setCursor(6,2);
+						lcd_string(y,m,':',n,z);
+					}
+					else if (index==2){
+						y=m;
+						m=n;
+						n=z;
+						z=temp;
+						lcd_setCursor(6,2);
+						lcd_string(y,m,':',n,z);
+					}
+					else if (index==3){
+						y=m;
+						m=n;
+						n=z;	
+					  z=temp;
+						lcd_setCursor(6,2);
+						lcd_string(y,m,':',n,z);
+					}
+					else if (index==4){
+						y=m;
+						m=n;
+						n=z;
+						z=temp;
+						lcd_setCursor(6,2);
+						lcd_string(y,m,':',n,z);
+						}
+					}
+					i = 0;
+					previous_state = setTime_state;
+					state = cooking_state;
+				}
+					break;
 				
 			case puase_state:
 				i = 1;
