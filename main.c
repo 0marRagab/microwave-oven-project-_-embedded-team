@@ -7,12 +7,8 @@
 #include "used_function.h"
 #include "functions.h"
 
-int previous_state;
-int state;
 char y,m,n,z;
-char q[4];
-char ch[4];
-int d; 
+char temp;
 
 void SystemInit(); 
 
@@ -38,12 +34,14 @@ int main(){
 	unsigned char time_arr[5];
 	char ch[4]={' '};
 	char q[4]={' '};
-	char temp;
 	char c;
 	char timer;
 	char u[]="0000";
 	int index;
 	int i=1;
+	int d; 
+	int previous_state;
+	int state;
  	state = initial_state;
 	PortF_Init();
 	PortA_Init();
