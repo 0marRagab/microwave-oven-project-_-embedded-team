@@ -1,6 +1,6 @@
-#include "tm4c123gh6pm.h"
-#include "Gpio.h"
+#include "MACROS.h"
 #include "Std_INT.h"
+#include "Gpio.h"
 #include "keypad.h"
 
 int main(){
