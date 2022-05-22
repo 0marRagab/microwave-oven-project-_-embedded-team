@@ -1,4 +1,5 @@
-#include "tm4c123gh6pm.h"
+#include "MACROS.h"
+#include "Std_INT.h"
 #include "LCD.h"
 #include "delay.h"
 #include "keypad.h"
