@@ -1,6 +1,6 @@
-#include "tm4c123gh6pm.h"
-#include "keypad.h"
+#include "MACROS.h"
 #include "Std_INT.h"
+#include "keypad.h"
 #include "delay.h"
 
 // adding array of charachter in keypad
