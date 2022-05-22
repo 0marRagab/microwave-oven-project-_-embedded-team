@@ -1,6 +1,5 @@
 #ifndef keypad_H_
 #define keypad_H_
-#include "Std_INT.h"
 
 // definitions of numbers of rows and cols of our keypad 
 #define N_col 4
