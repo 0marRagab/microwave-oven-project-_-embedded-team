@@ -17,14 +17,18 @@ unsigned int mod(u32 num, u32 div){
 }
 
 
+
+
 /*                                    ******************************
 **************************************  ___RGB_BLINK() function___  **************************************
                                       ******************************
  call RGB_BLINK() to blink the RGB array
 */
 void RGB_BLINK() {                            
-	GPIO_PORTF_DATA_R ^= 0x0E;
-	delay_ms(500);
+	RGB_OFF();
+	delay_m_s(1000);
+	RGB_ON();
+	delay_m_s(1000);
 }
 
 /*                                    *********************
@@ -34,18 +38,14 @@ void RGB_BLINK() {
 */
 
 void RGB_FLASH() {                           
-	RGB_ON();
-	delay_ms(500);
-	RGB_OFF();
-	delay_ms(500);
-        RGB_ON();
-	delay_ms(500);
-	RGB_OFF();
-	delay_ms(500);
-	RGB_ON();
-	delay_ms(500);
-	RGB_OFF();
-        delay_ms(500);
+	int i ;
+	for( i=0 ; i< 3 ; i++ ){
+		RGB_OFF();
+		delay_m_s(500);
+		RGB_ON();
+		delay_m_s(500);
+		RGB_OFF();
+	}
 }
 
 
