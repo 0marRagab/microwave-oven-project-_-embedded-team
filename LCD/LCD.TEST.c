@@ -1,5 +1,5 @@
-
-#include "tm4c123gh6pm.h"
+#include "MACROS.h"
+#include "Std_INT.h"
 #include "Gpio.h"
 #include "delay.h"
 #include "LCD.h"
