@@ -1,5 +1,5 @@
-#ifndef Functions_H
-#define Functions_H
+#ifndef used_function_H
+#define used_function_H
 #include "Std_INT.h"
 #include "Gpio.h"
 #include "delay.h"
