@@ -10,7 +10,7 @@ extern char y,m,n,z;
 extern char temp;
 
 
-enum states { initial_state = 1 , choosing_state , popcorn_state, beef_state, chicken_state, setTime_state, cooking_state, puase_state, stop_state, done_state } ;
+enum states { initial_state = 1 , choosing_state , popcorn_state, beef_state, chicken_state, setTime_state, cooking_state, pause_state, stop_state, done_state } ;
 int super_timer(u8 min,u8 mmin,u8 sec,u8 msec);
                          
 
