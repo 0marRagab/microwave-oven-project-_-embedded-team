@@ -5,6 +5,49 @@
 #include "Gpio.h"
 #include "LCD.h"
 
+
+char O[4]; 
+char y,m,n,z;
+char temp;
+
+
+void fetch_input(){
+	y=m;
+ 	m=n;
+	n=z;
+	z=temp;
+	lcd_setCursor(6,2);
+	lcd_string(y,m,':',n,z);
+}
+
+
+void Error_msg1(){
+	lcd_clear();
+	lcd_setCursor(6,2);
+	lcd_print("Error");
+	Buzzer_ON();
+	delay_ms(1500);
+	Buzzer_OFF();
+}
+
+
+void Error_msg2(){
+	RGB_OFF();
+	lcd_setCursor(8,2);
+	lcd_print("       ");
+	lcd_setCursor(8,2);
+	lcd_print("Error");
+	Buzzer_ON();
+	delay_ms(1500);
+	Buzzer_OFF();
+	lcd_clear();
+	lcd_setCursor(1,1);
+	lcd_print("Enter Bet 1:9");
+	delay_ms(1500);
+	lcd_clear();
+}
+
+
 /*                                    ******************************
 **************************************   ___int mod() function___   **************************************
                                       ******************************
@@ -16,8 +59,6 @@ unsigned int mod(u32 num, u32 div){
 	}
 	return num;
 }
-
-
 
 
 /*                                    ******************************
@@ -32,11 +73,13 @@ void RGB_BLINK() {
 	delay_m_s(1000);
 }
 
+
 /*                                    *********************
 **************************************   ___RGB_FLASH___   **************************************
                                       *********************
  call RGB_FlASH() to Flash the RGB array 3 times
 */
+
 
 void RGB_FLASH() {                           
 	int i ;
@@ -48,6 +91,7 @@ void RGB_FLASH() {
 		RGB_OFF();
 	}
 }
+
 
 
 /*                                    **************************
