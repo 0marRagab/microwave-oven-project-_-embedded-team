@@ -7,8 +7,6 @@
 #include "used_function.h"
 #include "functions.h"
 
-char y,m,n,z;
-char temp;
 
 void SystemInit(); 
 
@@ -41,10 +39,10 @@ int main(){
 	int previous_state;
 	int state;
  	state = initial_state;
-	PortF_Init();
 	PortA_Init();
 	init_lcd();
 	keypad_Init();
+	SysTick_Init();
 	
 	
 	while(1){
@@ -59,11 +57,7 @@ int main(){
 					break;
 				}
 				else{
-					lcd_clear();
-					lcd_print("Error");
-					Buzzer_ON();
-					delay_ms(1500);
-					Buzzer_OFF();
+					Error_msg1();
 					state = initial_state;
 				}
 				break;
@@ -86,11 +80,7 @@ int main(){
 					state = setTime_state;
 				}
 				else{
-					lcd_clear();
-					lcd_print("Error");
-					Buzzer_ON();
-					delay_ms(1500);
-					Buzzer_OFF();
+					Error_msg1();
 					state = choosing_state;
 				}
 				previous_state = choosing_state;
@@ -181,36 +171,16 @@ int main(){
 							lcd_string(y,m,':',n,z);
 						}
 						if (index ==1){
-							y=m;
-							m=n;
-							n=z;
-							z=temp;
-							lcd_setCursor(6,2);
-							lcd_string(y,m,':',n,z);
+							fetch_input();
 						}
 						else if (index==2){
-							y=m;
-							m=n;
-							n=z;
-							z=temp;
-							lcd_setCursor(6,2);
-							lcd_string(y,m,':',n,z);
+							fetch_input();
 						}
 						else if (index==3){
-							y=m;
-							m=n;
-							n=z;	
-						        z=temp;
-							lcd_setCursor(6,2);
-							lcd_string(y,m,':',n,z);
+							fetch_input();
 						}
 						else if (index==4){
-							y=m;
-							m=n;
-							n=z;
-							z=temp;
-							lcd_setCursor(6,2);
-							lcd_string(y,m,':',n,z);
+							fetch_input();
 						}
 					}
 					i = 0;
@@ -222,12 +192,14 @@ int main(){
 				
 			case cooking_state:
 				i=1;
+				
 				if( previous_state == popcorn_state ){
 					lcd_clear();
 					lcd_setCursor(5,1);    					// call lcd_goto(col,row) to set cursor at specific location
 					lcd_print("Popcorn");
 					d = super_timer('0','1','0','0');
 				}
+				
 				else if( previous_state == beef_state ){
 					if (index==1){
 						if (u[0]<='9' && u[0]>='1'){		// check weight to be 1:9
@@ -246,19 +218,7 @@ int main(){
 							}
 						}
 						else{
-							RGB_OFF();
-							lcd_setCursor(8,2);
-							lcd_print("       ");
-							lcd_setCursor(8,2);
-							lcd_print("Error");
-							Buzzer_ON();
-							delay_ms(1500);
-							Buzzer_OFF();
-							lcd_clear();
-							lcd_setCursor(1,1);
-							lcd_print("Enter Bet 1:9");
-							delay_ms(1500);
-							lcd_clear();
+							Error_msg2();
 							i = 1;
               						previous_state= cooking_state;
 							state = beef_state;
@@ -266,19 +226,7 @@ int main(){
 						}
 					}
 					else{
-						RGB_OFF();
-						lcd_setCursor(8,2);
-						lcd_print("       ");
-						lcd_setCursor(8,2);
-						lcd_print("Error");
-						Buzzer_ON();
-						delay_ms(1500);
-						Buzzer_OFF();
-						lcd_clear();
-						lcd_setCursor(1,1);
-						lcd_print("Enter Bet 1:9");
-						delay_ms(1500);
-						lcd_clear();
+						Error_msg2();
 						i = 1;
 						previous_state= cooking_state;
 						state = beef_state;
@@ -307,19 +255,7 @@ int main(){
 							}
 						}
 						else{
-							RGB_OFF();
-							lcd_setCursor(8,2);
-							lcd_print("       ");
-							lcd_setCursor(8,2);
-							lcd_print("Error");
-							Buzzer_ON();
-							delay_ms(1500);
-							Buzzer_OFF();
-							lcd_clear();
-							lcd_setCursor(1,1);
-							lcd_print("Enter Bet 1:9");
-							delay_ms(1500);
-							lcd_clear();
+							Error_msg2();
 							i=1;
 							previous_state = cooking_state;
 							state = chicken_state;
@@ -327,19 +263,7 @@ int main(){
 						}
 					}
 					else{
-						RGB_OFF();
-						lcd_setCursor(8,2);
-						lcd_print("       ");
-						lcd_setCursor(8,2);
-						lcd_print("Error");
-						Buzzer_ON();
-						delay_ms(1500);
-						Buzzer_OFF();
-						lcd_clear();
-						lcd_setCursor(1,1);
-						lcd_print("Enter Bet 1:9");
-						delay_ms(1500);
-						lcd_clear();
+						Error_msg2();
 						i=1;
 						previous_state = cooking_state;
 						state = chicken_state;
@@ -362,10 +286,14 @@ int main(){
 					}
 					else if(d == 1){}
 				}
+				
 				else if(previous_state == puase_state){
+					u[0]=O[0];
+					u[1]=O[1];
+				  	u[2]=O[2];
+				  	u[3]=O[3];
 					lcd_setCursor(6,2);
-					lcd_print("puased");
-					delay_ms(1000);
+	        			d = super_timer(u[0],u[1],u[2],u[3]);
 				}
 				if(d == 2){
 					i = 1;
@@ -380,10 +308,7 @@ int main(){
 			case puase_state:
 				i = 1;
 				while(i){
-					RGB_OFF();
-					delay_m_s(1000);
-					RGB_ON();
-					delay_m_s(1000);
+					RGB_BLINK();
 					if(sw1_in() ==1){
 						i=0;
 						state = stop_state;
@@ -406,8 +331,7 @@ int main(){
 				lcd_clear();
 			        i =1;	
 			        state = initial_state;
-			    break;
-				
+			    break;	
 				
 				
 			case done_state:
@@ -415,13 +339,7 @@ int main(){
 				lcd_setCursor(1,1);
 			  	lcd_print("cooking done");
 				Buzzer_ON();
-				for( i=0 ; i< 3 ; i++ ){
-					RGB_OFF();
-					delay_m_s(500);
-					RGB_ON();
-					delay_m_s(500);
-					RGB_OFF();
-				}
+				RGB_FLASH();
 				Buzzer_OFF();
 				lcd_clear();
 				state = initial_state;
