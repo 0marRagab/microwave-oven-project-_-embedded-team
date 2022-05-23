@@ -11,6 +11,11 @@ char y,m,n,z;
 char temp;
 
 
+/*                                    **********************************
+**************************************   ___fetch_input() function___   **************************************
+                                      **********************************
+to 
+*/
 void fetch_input(){
 	y=m;
  	m=n;
@@ -20,6 +25,11 @@ void fetch_input(){
 	lcd_string(y,m,':',n,z);
 }
 
+/*                                    *********************************
+**************************************   ___Error_msg1() function___   **************************************
+                                      *********************************
+to print error msg if unexpected button is pressed
+*/
 
 void Error_msg1(){
 	lcd_clear();
@@ -30,7 +40,11 @@ void Error_msg1(){
 	Buzzer_OFF();
 }
 
-
+/*                                    *********************************
+**************************************   ___Error_msg2() function___   **************************************
+                                      *********************************
+to print error msg if unexpected button is pressed
+*/
 void Error_msg2(){
 	RGB_OFF();
 	lcd_setCursor(8,2);
