@@ -14,7 +14,7 @@ char temp;
 /*                                    **********************************
 **************************************   ___fetch_input() function___   **************************************
                                       **********************************
-to 
+to store user inputs in case d till pressing sw_2
 */
 void fetch_input(){
 	y=m;
