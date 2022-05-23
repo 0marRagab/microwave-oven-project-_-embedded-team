@@ -287,7 +287,7 @@ int main(){
 					else if(d == 1){}
 				}
 				
-				else if(previous_state == puase_state){
+				else if(previous_state == pause_state){
 					u[0]=O[0];
 					u[1]=O[1];
 				  	u[2]=O[2];
@@ -297,7 +297,7 @@ int main(){
 				}
 				if(d == 2){
 					i = 1;
-					state = puase_state;
+					state = pause_state;
 					break;
 				}
 				previous_state = cooking_state;
@@ -305,7 +305,7 @@ int main(){
 				break;
 				
 				
-			case puase_state:
+			case pause_state:
 				i = 1;
 				while(i){
 					RGB_BLINK();
@@ -315,7 +315,7 @@ int main(){
 					}
 					else if(sw2_in() == 1){
 						i=1;
-				  		previous_state = puase_state;
+				  		previous_state = pause_state;
 				  		state = cooking_state;
 				  		break;
 					}
