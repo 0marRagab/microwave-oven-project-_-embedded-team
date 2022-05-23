@@ -5,7 +5,6 @@
 #include "LCD.h"
 #include "Std_INT.h"
 #include "used_function.h"
-#include "functions.h"
 
 
 void SystemInit(); 
