@@ -17,6 +17,8 @@ int main(){
 	
 	while(1){
 		switch(state){
+				
+				
 			case initial_state:
 				lcd_clear();
 			   	lcd_print("Enter * to start");
@@ -119,6 +121,7 @@ int main(){
 					state = cooking_state;
 				}
 				break;
+				
 				
 			case setTime_state:
 				while(i){
