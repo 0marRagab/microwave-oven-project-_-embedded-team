@@ -1,14 +1,14 @@
-#include "MACROS.h"
+#include "io.h"
 #include "Gpio.h"
 #include "Keypad.h"
 #include "delay.h"
 #include "LCD.h"
 #include "Std_INT.h"
 #include "used_function.h"
+#include "functions.h"
 
 
 void SystemInit(); 
-
 
 /*                                    ************************************
 **************************************   ___GPIOA_Handler() function___   **************************************
@@ -32,8 +32,6 @@ void GPIOA_Handler(void){
 **************************************   ___Main Function___   **************************************
                                       *************************
 */
-
-
 int main(){  
 	unsigned int x=1;
 	unsigned char input;
@@ -48,6 +46,7 @@ int main(){
 	int previous_state;
 	int state;
  	state = initial_state;
+	PortF_Init();
 	PortA_Init();
 	init_lcd();
 	keypad_Init();
@@ -242,7 +241,6 @@ int main(){
 					  break;				
 					}
 					d = super_timer(time_arr[0],time_arr[1],time_arr[2],time_arr[3]);
-					
 				}
 				
 				else if( previous_state == chicken_state ){
