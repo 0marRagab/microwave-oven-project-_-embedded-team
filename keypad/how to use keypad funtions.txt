@@ -2,6 +2,6 @@
 
 2- call Keypad_Getkey() to return the character pressed in the keypad
 
-3- call keypad_getkey_caseD() to get number from user in case d
+3- call keypad_getkey_caseD() to get number from user in case B and C
 
 4- call check1(*ch[]*) and give it array to get pressed key and save it 
