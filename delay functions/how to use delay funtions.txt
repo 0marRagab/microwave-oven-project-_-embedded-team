@@ -9,4 +9,3 @@
 5- call delay_us(*time in microseconds*) and give it unsigned integer value represents time in milliseconds to make delay with this value
 
 6- call delay_portA_interrupt(**) to stop count down when switch is pressed
-
