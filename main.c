@@ -10,6 +10,11 @@
 void SystemInit(); 
 
 
+/*                                    ************************************
+**************************************   ___GPIOA_Handler() function___   **************************************
+                                      ************************************
+to stop the code blinking and turn on the buzzer when sw_3 == 1(door is open) 
+*/
 void GPIOA_Handler(void){
 	GPIO_PORTA_ICR_R |= 0x10; // acknowledge flag4 of pin 4
 	RGB_OFF();
@@ -44,9 +49,7 @@ int main(){
 	SysTick_Init();
 	
 	while(1){
-		switch(state){
-				
-				
+		switch(state){	
 			case initial_state:
 				lcd_clear();
 			   	lcd_print("Enter * to start");
