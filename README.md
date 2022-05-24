@@ -6,16 +6,16 @@ Embedded C
 
 ## Members ##
 This project is Done by Group of 8 members of CSE and ECE departements at Faculty of Engineering Ain Shams Univeristy:
-|**Name**|**ID**|**github link**|
-|:-------|:----:|:--------------|
-|Omar Ragab Mohamed|1901171|
-|Mina Gamal Fayez Labib|1900101|
-|Omar Karam Samir Foad|1900868|
-|Yasmeen Abdelrazek Mohamed|1900434|
-|Tarek Magdy Sayed|1900702|
-|Moustafa Yasser Abdelmonem|1900092|
-|Youssef Emad mohamed|1701739|
-|Shimaa Rashad Saeed Nassar|1901338|
+|**Name**|**ID**|**github link**|**dep.**|
+|:-------|:----:|:--------------|:-------|
+|Omar Ragab Mohamed|1901171|ECE|
+|Mina Gamal Fayez Labib|1900101|ECE|
+|Omar Karam Samir Foad|1900868|CSE|
+|Yasmeen Abdelrazek Mohamed|1900434|CSE|
+|Tarek Magdy Sayed|1900702|ECE|
+|Moustafa Yasser Abdelmonem|1900092|ECE|
+|Youssef Emad mohamed|1701739|CSE|
+|Shimaa Rashad Saeed Nassar|1901338|CSE|
 
 ## the details of what was asked to do in this project ##
 
