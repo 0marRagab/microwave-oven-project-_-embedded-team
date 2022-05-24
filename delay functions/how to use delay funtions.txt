@@ -1,1 +1,12 @@
+1- call SysTick_Init() to initialize the SysTick Timer
+
+2- call delay_onems() to make delay one millisecond
+
+3- call delay_oneus() to make delay one microsecond
+
+4- call delay_ms(*time in milliseconds*) and give it unsigned integer value represents time in milliseconds to make delay with this value
+
+5- call delay_us(*time in microseconds*) and give it unsigned integer value represents time in milliseconds to make delay with this value
+
+6- call delay_portA_interrupt(**) to stop count down when switch is pressed
 
