@@ -8,23 +8,6 @@
 extern char O[4];
 extern char y,m,n,z;
 extern char temp;
-extern char O[4]; 
-extern char y,m,n,z;
-extern char temp;
-extern unsigned int x;
-extern unsigned char input;
-extern unsigned char weight;
-extern unsigned char time_arr[5];
-extern char c;
-extern char timer;
-extern char u[];
-extern int index;
-extern int i;
-extern int d; 
-extern int previous_state;
-extern int state;
-extern state ;
-
 
 
 enum states { initial_state = 1 , choosing_state , popcorn_state, beef_state, chicken_state, setTime_state, cooking_state, pause_state, stop_state, done_state } ;
