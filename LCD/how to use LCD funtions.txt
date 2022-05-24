@@ -1,1 +1,17 @@
+1- call PortB_Init() to initilize port B
 
+2- call PortD_Init() to initilize port D for en,rs,rw pins
+
+3- call lcd_cmd(*command*) and give it a command from the LCD Driver
+
+4- call lcd_clear() to Clear the Display
+
+5- call init_lcd() to Apply initialization sequence for LCD module   
+
+6- call lcd_write(**) and give it character value to write it on LCD screen
+
+7- call lcd_print() to write string on LCD screen
+
+8- call lcd_setCursor(*column*,*row*) and give it two unsigned inteder values (column first) (then row) to start the writing process at certain digit in the LCD
+
+9- call lcd_string(*char1*,*char2*,*char3*,*char4*,*char5*) and give it 5 characters for digital watch view (xx:xx) to print concatenated charcters on screen
