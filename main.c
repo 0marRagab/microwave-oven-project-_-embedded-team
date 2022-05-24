@@ -6,43 +6,14 @@
 #include "Std_INT.h"
 #include "used_function.h"
 
-
 void SystemInit(); 
 
-
-void GPIOA_Handler(void){
-	GPIO_PORTA_ICR_R |= 0x10; // acknowledge flag4 of pin 4
-	RGB_OFF();
-	Buzzer_ON();
-	while(sw3_in()==1){
-		leds_ON();
-		delay_portA_interrupt(1000);
-		leds_OFF();
-		delay_portA_interrupt(1000);
-	}
-	Buzzer_OFF();
-}
-
-
 int main(){  
-	unsigned int x=1;
-	unsigned char input;
-	unsigned char weight;
-	unsigned char time_arr[5];
-	char c;
-	char timer;
-	char u[]="0000";
-	int index;
-	int i=1;
-	int d; 
-	int previous_state;
-	int state;
  	state = initial_state;
 	PortA_Init();
 	init_lcd();
 	keypad_Init();
 	SysTick_Init();
-	
 	
 	while(1){
 		switch(state){
