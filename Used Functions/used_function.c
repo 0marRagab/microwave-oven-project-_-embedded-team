@@ -9,40 +9,7 @@
 char O[4]; 
 char y,m,n,z;
 char temp;
-unsigned int x=1;
-unsigned char input;
-unsigned char weight;
-unsigned char time_arr[5];
-char c;
-char timer;
-char u[]="0000";
-int index;
-int i=1;
-int d; 
-int previous_state;
-int state;
-state = initial_state;
         
-
-
-/*                                    ************************************
-**************************************   ___GPIOA_Handler() function___   **************************************
-                                      ************************************
-to stop the code blinking and turn on the buzzer when sw_3 == 1(door is open) 
-*/
-void GPIOA_Handler(void){
-	GPIO_PORTA_ICR_R |= 0x10; // acknowledge flag4 of pin 4
-	RGB_OFF();
-	Buzzer_ON();
-	while(sw3_in()==1){
-		leds_ON();
-		delay_portA_interrupt(1000);
-		leds_OFF();
-		delay_portA_interrupt(1000);
-	}
-	Buzzer_OFF();
-}
-
 
 /*                                    **********************************
 **************************************   ___fetch_input() function___   **************************************
