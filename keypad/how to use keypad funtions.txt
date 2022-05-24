@@ -1,1 +1,7 @@
+1- call Keypad_Init() to intiate PORTC and PORTA to scan keypad keys
 
+2- call Keypad_Getkey() to return the character pressed in the keypad
+
+3- call keypad_getkey_caseD() to get number from user in case d
+
+4- call check1(*ch[]*) and give it array to get pressed key and save it 
