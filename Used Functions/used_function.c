@@ -43,7 +43,7 @@ void Error_msg1(){
 /*                                    *********************************
 **************************************   ___Error_msg2() function___   **************************************
                                       *********************************
-to print error msg if unexpected button is pressed
+to print error msg if unexpected button is pressed (in beef & chicken cases)
 */
 void Error_msg2(){
 	RGB_OFF();
