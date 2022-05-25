@@ -83,9 +83,32 @@ timed cooking or defrosting), the array of LEDs should flash 3 times (wait time 
 wait time off), and the buzzer should produce an audible tone/alarm during these 3 
 second times periods.
 
-# Project Pdf #
-this pdf include all project details
+## Project Pdf ##
+
+this pdf include all project details including different snapshots covering different scenarios
+mentioned in “diagram explanation” section :
 
 https://drive.google.com/file/d/1ipNVOugnh0EojabgTCZ1MZuad37eOj7P/view
-# Project Video #
+
+## Project Video ##
+
+In this video we upload code on Tiva and test all cases &error cases on 
+it inclucding pause, stopped and done states :
+
 https://drive.google.com/file/d/1PVcwUsDFOByYo7tiICcqBacrgwSGQQwJ/view
+
+## Link of complete project folder on drive ##
+
+in this link u will find the project zip folder which u can downlod & run it using kiel :
+
+https://drive.google.com/drive/folders/1xiD6rESVYCqwnd69EKDeZvloqnTZWhaa
+
+## Link of repo description video ##
+
+In this video we describe quickly how our repo go on & the content of 
+its files:
+
+https://youtu.be/f90ULvKG9Q8
+
+
+
