@@ -136,4 +136,19 @@
 #define NVIC_ST_CURRENT_R       (*((volatile unsigned long *)0xE000E018))
 //***************************
 
+#define GPIO_PORTE_DATA_R   (*((volatile unsigned long *)0x4005C3FC))
+#define GPIO_PORTE_DIR_R    (*((volatile unsigned long *)0x4005C400))
+#define GPIO_PORTE_ICR_R    (*((volatile unsigned long *)0x4005C41C))
+#define GPIO_PORTE_AFSEL_R  (*((volatile unsigned long *)0x4005C420))
+#define GPIO_PORTE_PUR_R    (*((volatile unsigned long *)0x4005C510))
+#define GPIO_PORTE_PDR_R    (*((volatile unsigned long *)0x40024514))
+#define GPIO_PORTE_DEN_R    (*((volatile unsigned long *)0x4005C51C))
+#define GPIO_PORTE_LOCK_R   (*((volatile unsigned long *)0x4005C520))
+#define GPIO_PORTE_CR_R     (*((volatile unsigned long *)0x4005C524))
+#define GPIO_PORTE_AMSEL_R  (*((volatile unsigned long *)0x4005C528))
+#define GPIO_PORTE_PCTL_R   (*((volatile unsigned long *)0x4005C52C))
+
+	
+#define NVIC_EN0_R              (*((volatile unsigned long *)0xE000E100))
+#define NVIC_PRI0_R             (*((volatile unsigned long *)0xE000E400))
 #endif
