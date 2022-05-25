@@ -17,7 +17,11 @@ void delay_ms(unsigned int x);
 // call delay_us(*time*)
 void delay_us(unsigned int y);
 
+/*
+void delay_m_s(unsigned int x);
 
+void delay_o();
+*/
 int delay_m_s(unsigned int x);
 
 // Function to stop count down when switch is pressed
