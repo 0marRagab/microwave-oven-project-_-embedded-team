@@ -86,7 +86,6 @@ second times periods.
 # Project Pdf #
 this pdf include all project details
 
-file:///C:/Users/HP/Downloads/microwave%20oven%20controller%20project%20(4).pdf
-
+https://drive.google.com/file/d/1ipNVOugnh0EojabgTCZ1MZuad37eOj7P/view
 # Project Video #
 https://drive.google.com/file/d/1PVcwUsDFOByYo7tiICcqBacrgwSGQQwJ/view
