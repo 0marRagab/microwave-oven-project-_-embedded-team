@@ -90,16 +90,6 @@ return 0;
 return 0;
 }
 
-int delay_m_m_s(unsigned int x) { 
-int i;
-for(i=0 ; i<x ; i++){ 
-delay_onems(); 
-if ( sw2_in() ==1 | sw1_in() ==0){
-return 0;
-}
-}
-return 0;
-}
 
 /*                                    ****************************************
 ************************************** ___delay_portA_interrupt() function___ **************************************
