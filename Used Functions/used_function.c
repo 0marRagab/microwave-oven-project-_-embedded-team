@@ -1,14 +1,27 @@
 #include "used_function.h"
-#include "MACROS.h"
-#include "Std_INT.h"
+#include "io.h"
+#include "LCD.h"
 #include "delay.h"
 #include "Gpio.h"
-#include "LCD.h"
 
 
 char O[4]; 
 char y,m,n,z;
 char temp;
+
+
+// function used to calculate number of input numbers from keypad	
+unsigned int num_input (char y){
+	static int x=0;
+	while (y<='9'){
+		x++;
+		if (x==5){
+			x=1;
+		}
+		return x;
+		}
+	return 10;
+}
         
 
 /*                                    **********************************
@@ -45,6 +58,7 @@ void Error_msg1(){
                                       *********************************
 to print error msg if unexpected button is pressed (in beef & chicken cases)
 */
+
 void Error_msg2(){
 	RGB_OFF();
 	lcd_setCursor(8,2);
@@ -67,6 +81,7 @@ void Error_msg2(){
                                       ******************************
  func to return remainder (modulo)
 */
+
 unsigned int mod(u32 num, u32 div){
 	while (num >= div){
 		num = num - div;
@@ -74,12 +89,12 @@ unsigned int mod(u32 num, u32 div){
 	return num;
 }
 
-
 /*                                    ******************************
 **************************************  ___RGB_BLINK() function___  **************************************
                                       ******************************
  call RGB_BLINK() to blink the RGB array
 */
+
 void RGB_BLINK() {                            
 	RGB_OFF();
 	delay_m_s(1000);
@@ -87,13 +102,11 @@ void RGB_BLINK() {
 	delay_m_s(1000);
 }
 
-
 /*                                    *********************
 **************************************   ___RGB_FLASH___   **************************************
                                       *********************
  call RGB_FlASH() to Flash the RGB array 3 times
 */
-
 
 void RGB_FLASH() {                           
 	int i ;
@@ -106,13 +119,12 @@ void RGB_FLASH() {
 	}
 }
 
-
-
 /*                                    **************************
 **************************************     ___super_timer___    **************************************
                                       **************************
 call super_timer to display timer on screen
-*/
+*/ 
+
 int super_timer(u8 min,u8 mmin,u8 sec,u8 msec){
 	int i;
 	if( (min<='9' && min>='0') && (mmin<='9' && mmin>='0') && (sec<='9' && sec>='0') && (msec<='9' && msec>='0')){
