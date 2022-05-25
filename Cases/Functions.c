@@ -11,6 +11,21 @@ char y,m,n,z;
 char temp;
 
 
+// function used to calculate number of input numbers from keypad	
+unsigned int num_input (char y)
+{
+static int x=0;
+while (y<='9'){
+x++;
+if (x==5){
+x=1;
+}
+return x;
+}
+return 10;
+}
+
+
 void fetch_input(){
 	y=m;
  	m=n;
