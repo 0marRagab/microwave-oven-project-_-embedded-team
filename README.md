@@ -88,7 +88,7 @@ second times periods.
 this pdf include all project details including different snapshots covering different scenarios
 mentioned in “diagram explanation” section :
 
-https://drive.google.com/file/d/1ipNVOugnh0EojabgTCZ1MZuad37eOj7P/view
+https://drive.google.com/file/d/1D5kx-exVIDJ8GOYpocxSlkf7IMug0yRS/view?usp=sharing
 
 ## Project Video ##
 
