@@ -83,5 +83,9 @@ timed cooking or defrosting), the array of LEDs should flash 3 times (wait time 
 wait time off), and the buzzer should produce an audible tone/alarm during these 3 
 second times periods.
 
+# Project Pdf #
+this pdf include all project details
+file:///C:/Users/HP/Downloads/microwave%20oven%20controller%20project%20(4).pdf
+
 # Project Video #
 https://drive.google.com/file/d/1PVcwUsDFOByYo7tiICcqBacrgwSGQQwJ/view
