@@ -4,7 +4,7 @@
 #include "delay.h"
 #include "LCD.h"
 #include "Std_INT.h"
-#include "functions.h"
+#include "Functions.h"
 
 
 void SystemInit(); 
