@@ -110,5 +110,4 @@ its files:
 
 https://youtu.be/f90ULvKG9Q8
 
-## " we hope we did well , thanks for this great experience " ##
 
